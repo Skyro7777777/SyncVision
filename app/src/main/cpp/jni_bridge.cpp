@@ -322,9 +322,9 @@ Java_com_syncvision_app_nativelib_NativeProcessor_placeLabels(
 
         // Fallback: return an Object[] of int[3] arrays (x, y, fontSize)
         // This is a simpler format that doesn't require a custom Java class
-        jintArray intClass = env->FindClass("[I");
+        jclass intArrayClass = env->FindClass("[I");
         jobjectArray result = env->NewObjectArray(
-            static_cast<jsize>(placements.size()), intClass, nullptr);
+            static_cast<jsize>(placements.size()), intArrayClass, nullptr);
 
         for (jsize i = 0; i < static_cast<jsize>(placements.size()); ++i) {
             jint arr[3] = {
@@ -667,7 +667,7 @@ Java_com_syncvision_app_nativelib_NativeProcessor_applyCannyEdge(
 }
 
 // ============================================================================
-// Library initialization — called when the native library is loaded
+// Library initialization â€” called when the native library is loaded
 // ============================================================================
 extern "C" JNIEXPORT jint JNICALL
 JNI_OnLoad(JavaVM* vm, void* /* reserved */)
@@ -677,7 +677,7 @@ JNI_OnLoad(JavaVM* vm, void* /* reserved */)
 }
 
 // ============================================================================
-// Library cleanup — called when the VM is shutting down
+// Library cleanup â€” called when the VM is shutting down
 // ============================================================================
 extern "C" JNIEXPORT void JNICALL
 JNI_OnUnload(JavaVM* vm, void* /* reserved */)
