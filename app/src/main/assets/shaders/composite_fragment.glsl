@@ -1,6 +1,6 @@
 // ============================================================================
 // composite_fragment.glsl
-// Sync Vision — Core Composite Fragment Shader
+// Sync Vision â€” Core Composite Fragment Shader
 //
 // The primary compositing shader that combines:
 //   1. Camera feed (base layer)
@@ -10,12 +10,13 @@
 //   5. Night mode brightness boost
 //   6. Glow effect around green outlines
 //
-// The green outline is the signature visual of Sync Vision — thin (1-2px),
+// The green outline is the signature visual of Sync Vision â€” thin (1-2px),
 // bright terminal green (#00FF41) lines tracing object boundaries detected
 // by the segmentation model, creating an E.D.I.T.H-inspired AR overlay.
 // ============================================================================
 
 #version 300 es
+#extension GL_OES_EGL_image_external_essl3 : require
 precision mediump float;
 
 // Varying input from vertex shader
@@ -25,7 +26,7 @@ in vec2 vTexCoord;
 layout(location = 0) out vec4 fragColor;
 
 // Texture uniforms
-uniform sampler2D uCameraTexture;    // Camera feed (RGBA)
+uniform samplerExternalOES uCameraTexture;    // Camera feed (GL_TEXTURE_EXTERNAL_OES)
 uniform sampler2D uMaskTexture;      // Segmentation mask (R8, class IDs as float)
 uniform sampler2D uLabelTexture;     // Text labels on transparent background (RGBA)
 uniform sampler2D uDepthTexture;     // Depth map (optional, R8)
@@ -110,21 +111,21 @@ float computeGlow(vec2 uv) {
 }
 
 // ---------------------------------------------------------------------------
-// CRT scanline effect — subtle darkened horizontal lines
+// CRT scanline effect â€” subtle darkened horizontal lines
 // ---------------------------------------------------------------------------
 float scanlineEffect(vec2 uv) {
     // Screen-space Y coordinate for scanline pattern
     float screenY = uv.y * SCANLINE_FREQ;
     float scanline = sin(screenY * 3.14159265) * 0.5 + 0.5;
 
-    // Make it subtle — only darken slightly
+    // Make it subtle â€” only darken slightly
     float darkening = mix(1.0, 1.0 - SCANLINE_DARK, scanline * uScanlineIntensity);
 
     return darkening;
 }
 
 // ---------------------------------------------------------------------------
-// Night mode — brightness boost and slight warm tint
+// Night mode â€” brightness boost and slight warm tint
 // ---------------------------------------------------------------------------
 vec3 applyNightMode(vec3 color) {
     // Boost brightness
@@ -179,12 +180,12 @@ void main() {
     vec3 finalColor = cameraColor;
 
     if (isEdge) {
-        // Direct outline — bright terminal green with pulse
+        // Direct outline â€” bright terminal green with pulse
         float edgeIntensity = min(edgeMagnitude / 1.5, 1.0) * pulse;
         vec3 outlineColor = uGreenColor * edgeIntensity;
         finalColor = mix(cameraColor, outlineColor, OUTLINE_ALPHA);
     } else if (glow > 0.01) {
-        // Glow around outline — softer, more transparent green
+        // Glow around outline â€” softer, more transparent green
         vec3 glowColor = uGreenColor * GLOW_INTENSITY * glow;
         finalColor = mix(finalColor, finalColor + glowColor, glow * 0.7);
     }
