@@ -14,7 +14,7 @@
  *   - BLOCKS:   Object A overlaps and is closer (from depth) than B
  *   - SUPPORTS: Object B rests on top of object A (inverse of ON)
  *
- * Sync Vision — Android Camera App with ML-powered Overlay
+ * Sync Vision â€” Android Camera App with ML-powered Overlay
  * Package: com.syncvision.app.scene
  * Target SDK: 29+
  */
@@ -24,6 +24,7 @@ package com.syncvision.app.scene;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import com.syncvision.app.ml.InferenceResult;
 import com.syncvision.app.nativelib.NativeConstants;
@@ -65,7 +66,7 @@ public class RelationshipExtractor {
     private static final float NEAR_DISTANCE_THRESHOLD = 0.3f;
 
     // ================================================================
-    // Inner Class — Relationship
+    // Inner Class â€” Relationship
     // ================================================================
 
     /**
