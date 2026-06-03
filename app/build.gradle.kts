@@ -120,8 +120,9 @@ dependencies {
     // Gson for JSON parsing
     implementation("com.google.code.gson:gson:2.11.0")
 
-    // Material Design (minimal, for settings)
+    // Material3 Design (for theme & settings)
     implementation("com.google.android.material:material:1.12.0")
+    implementation("com.google.android.material:material3:1.3.0")
 
     // Coroutines
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.9.0")
