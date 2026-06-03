@@ -93,7 +93,7 @@
     <string name="weather_unknown">UNKNOWN</string>
 
     <!-- Scene summary -->
-    <string name="scene_summary">%d OBJECTS | %s | THREAT: %s</string>
+    <string name="scene_summary" formatted="false">%d OBJECTS | %s | THREAT: %s</string>
 
     <!-- Sync diagram -->
     <string name="sync_diagram_label">SYNC DIAGRAM</string>
