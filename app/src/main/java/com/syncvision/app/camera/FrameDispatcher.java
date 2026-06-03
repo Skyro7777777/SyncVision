@@ -7,7 +7,7 @@
  * based on frame counter scheduling. Maintains a ring buffer of
  * latest results and tracks FPS/latency metrics.
  *
- * Sync Vision — Android Camera App with ML-powered Overlay
+ * Sync Vision â€” Android Camera App with ML-powered Overlay
  * Package: com.syncvision.app.camera
  * Target SDK: 29+
  */
@@ -40,6 +40,7 @@ import com.syncvision.app.ml.LandmarkPipeline;
 
 import java.io.ByteArrayOutputStream;
 import java.nio.ByteBuffer;
+import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -366,7 +367,9 @@ public class FrameDispatcher {
             // --- On-demand: Barcode ---
             if (barcodePipeline != null && barcodeRequested) {
                 try {
-                    sceneResult.barcode = barcodePipeline.processFrame(bitmap);
+                    List<InferenceResult.BarcodeResult> barcodes = barcodePipeline.processFrame(bitmap);
+                    sceneResult.barcode = (barcodes != null && !barcodes.isEmpty())
+                            ? barcodes.get(0) : null;
                 } catch (Exception e) {
                     Log.e(TAG, "Barcode pipeline error", e);
                 }
@@ -426,7 +429,7 @@ public class FrameDispatcher {
             if (imageProxy.getFormat() == ImageFormat.YUV_420_888) {
                 bitmap = yuvImageProxyToBitmap(imageProxy);
             } else {
-                // RGBA_8888 or other formats — use direct ByteBuffer approach
+                // RGBA_8888 or other formats â€” use direct ByteBuffer approach
                 bitmap = rgbaImageProxyToBitmap(imageProxy);
             }
 
