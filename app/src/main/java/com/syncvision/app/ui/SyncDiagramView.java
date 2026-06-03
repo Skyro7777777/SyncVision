@@ -1,7 +1,7 @@
 /**
  * SyncDiagramView.java
  *
- * Custom View that draws the sync diagram — a relationship graph showing
+ * Custom View that draws the sync diagram â€” a relationship graph showing
  * detected objects as nodes and their spatial relationships as edges.
  * The diagram uses terminal green (#00FF41) on a semi-transparent dark
  * background, matching the E.D.I.T.H-style HUD aesthetic.
@@ -15,7 +15,7 @@
  *   - Small default size: ~200x200dp
  *   - Touch to expand/collapse
  *
- * Sync Vision — Android Camera App with ML-powered Overlay
+ * Sync Vision â€” Android Camera App with ML-powered Overlay
  * Package: com.syncvision.app.ui
  * Target SDK: 29+
  */
@@ -34,6 +34,7 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.animation.DecelerateInterpolator;
 
 import androidx.annotation.NonNull;
@@ -134,7 +135,7 @@ public class SyncDiagramView extends View {
     private static final int LAYOUT_ITERATIONS = 5;
 
     // ================================================================
-    // Inner Classes — Data Model
+    // Inner Classes â€” Data Model
     // ================================================================
 
     /**
@@ -321,7 +322,7 @@ public class SyncDiagramView extends View {
             // Check for new objects
             for (InferenceResult.DetectedObject obj : result.detection.objects) {
                 if (findNode(obj.id) == null) {
-                    // New object — add a node at a random position
+                    // New object â€” add a node at a random position
                     float cx = getWidth() > 0 ? getWidth() / 2f : 100f;
                     float cy = getHeight() > 0 ? getHeight() / 2f : 100f;
                     float rx = (random.nextFloat() - 0.5f) * 60f;
@@ -805,9 +806,9 @@ public class SyncDiagramView extends View {
         float dx = a.x - b.x;
         float dy = a.y - b.y;
 
-        // Vertical adjacency: A is above B → ON or SUPPORTS
+        // Vertical adjacency: A is above B â†’ ON or SUPPORTS
         if (Math.abs(dx) < Math.abs(dy) * 0.5f && a.y < b.y) {
-            // Person above furniture → ON
+            // Person above furniture â†’ ON
             if (a.iconType == NativeConstants.ICON_PERSON
                     && (b.iconType == NativeConstants.ICON_FURNITURE
                     || b.iconType == NativeConstants.ICON_VEHICLE)) {
