@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- ============================================================
+     Sync Vision — Dimension Resources
+     Common dimensions for HUD, overlay, and UI elements
+     ============================================================ -->
+<resources>
+    <!-- Font sizes -->
+    <dimen name="label_font_size_min">12sp</dimen>
+    <dimen name="label_font_size_max">24sp</dimen>
+    <dimen name="hud_text_size">14sp</dimen>
+    <dimen name="hud_text_size_large">18sp</dimen>
+    <dimen name="hud_text_size_small">11sp</dimen>
+    <dimen name="info_panel_title_size">20sp</dimen>
+    <dimen name="info_panel_body_size">14sp</dimen>
+    <dimen name="mode_button_text_size">13sp</dimen>
+
+    <!-- Sync diagram -->
+    <dimen name="sync_diagram_size">200dp</dimen>
+    <dimen name="sync_diagram_min_size">120dp</dimen>
+    <dimen name="sync_diagram_node_radius">14dp</dimen>
+    <dimen name="sync_diagram_text_size">9sp</dimen>
+
+    <!-- Info panel -->
+    <dimen name="info_panel_width">320dp</dimen>
+    <dimen name="info_panel_padding">16dp</dimen>
+    <dimen name="info_panel_divider_height">1dp</dimen>
+
+    <!-- Overlay / HUD -->
+    <dimen name="overlay_text_padding">8dp</dimen>
+    <dimen name="hud_margin">16dp</dimen>
+    <dimen name="hud_corner_length">24dp</dimen>
+    <dimen name="hud_corner_thickness">2dp</dimen>
+    <dimen name="hud_corner_offset">12dp</dimen>
+
+    <!-- Outline rendering -->
+    <dimen name="outline_thickness">2dp</dimen>
+
+    <!-- Mode toggle bar -->
+    <dimen name="mode_bar_height">48dp</dimen>
+    <dimen name="mode_button_width">80dp</dimen>
+    <dimen name="mode_button_height">36dp</dimen>
+    <dimen name="mode_button_margin">4dp</dimen>
+    <dimen name="mode_button_corner_radius">2dp</dimen>
+
+    <!-- Threat indicator -->
+    <dimen name="threat_indicator_size">12dp</dimen>
+    <dimen name="threat_indicator_padding">6dp</dimen>
+
+    <!-- Close button -->
+    <dimen name="close_button_size">32dp</dimen>
+
+    <!-- Hazard indicator -->
+    <dimen name="hazard_indicator_size">8dp</dimen>
+
+    <!-- Spacing -->
+    <dimen name="spacing_tiny">4dp</dimen>
+    <dimen name="spacing_small">8dp</dimen>
+    <dimen name="spacing_medium">12dp</dimen>
+    <dimen name="spacing_large">16dp</dimen>
+    <dimen name="spacing_xlarge">24dp</dimen>
+</resources>

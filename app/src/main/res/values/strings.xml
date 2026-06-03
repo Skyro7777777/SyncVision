@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- ============================================================
+     Sync Vision — String Resources
+     All UI strings in terminal / military HUD style
+     ============================================================ -->
+<resources>
+    <!-- App identity -->
+    <string name="app_name">Sync Vision</string>
+    <string name="settings_title">SETTINGS</string>
+
+    <!-- Permissions -->
+    <string name="camera_permission_rationale">SYNC VISION REQUIRES CAMERA ACCESS TO PROVIDE REAL-TIME AR OVERLAY ANALYSIS. NO DATA LEAVES YOUR DEVICE.</string>
+    <string name="camera_permission_denied">CAMERA PERMISSION DENIED. SYNC VISION CANNOT OPERATE WITHOUT CAMERA ACCESS.</string>
+
+    <!-- HUD labels -->
+    <string name="weather_label">WEATHER: %s</string>
+    <string name="faces_detected">%d FACES DETECTED</string>
+    <string name="fps_label">FPS: %.1f</string>
+
+    <!-- Threat levels -->
+    <string name="threat_safe">SAFE</string>
+    <string name="threat_caution">CAUTION</string>
+    <string name="threat_warning">WARNING</string>
+    <string name="threat_danger">DANGER</string>
+
+    <!-- Operating modes -->
+    <string name="mode_scan">SCAN</string>
+    <string name="mode_path">PATH</string>
+    <string name="mode_identify">ID</string>
+
+    <!-- Night mode -->
+    <string name="night_mode">NIGHT MODE ACTIVE</string>
+
+    <!-- Path status -->
+    <string name="clear_path">CLEAR PATH</string>
+    <string name="obstructed">OBSTRUCTED</string>
+    <string name="blocked">BLOCKED</string>
+
+    <!-- Privacy -->
+    <string name="privacy_statement">SYNC VISION OPERATES ENTIRELY ON-DEVICE. NO DATA IS SENT TO ANY SERVER. YOUR PRIVACY IS PROTECTED.</string>
+
+    <!-- About -->
+    <string name="about_description">SYNC VISION IS A REAL-TIME AR CAMERA THAT HELPS YOU UNDERSTAND THE WORLD AROUND YOU. IT DETECTS OBJECTS, ANALYZES PATHS, AND PROVIDES ENVIRONMENTAL AWARENESS — ALL ON YOUR DEVICE, ALL PRIVATE.</string>
+
+    <!-- Info panel labels -->
+    <string name="info_distance">DIST: %s</string>
+    <string name="info_hazard">HAZARD: %s</string>
+    <string name="info_confidence">CONF: %d%%</string>
+    <string name="info_close">X</string>
+
+    <!-- Settings categories -->
+    <string name="settings_performance">PERFORMANCE</string>
+    <string name="settings_display">DISPLAY</string>
+    <string name="settings_alerts">ALERTS</string>
+    <string name="settings_privacy_category">PRIVACY</string>
+    <string name="settings_about">ABOUT</string>
+
+    <!-- Settings keys (used programmatically) -->
+    <string name="pref_gpu_acceleration">pref_gpu_acceleration</string>
+    <string name="pref_nnapi">pref_nnapi</string>
+    <string name="pref_confidence_threshold">pref_confidence_threshold</string>
+    <string name="pref_scanline_intensity">pref_scanline_intensity</string>
+    <string name="pref_night_mode">pref_night_mode</string>
+    <string name="pref_audio_alerts">pref_audio_alerts</string>
+    <string name="pref_vibration_alerts">pref_vibration_alerts</string>
+    <string name="pref_sync_diagram">pref_sync_diagram</string>
+    <string name="pref_depth_labels">pref_depth_labels</string>
+    <string name="pref_camera_resolution">pref_camera_resolution</string>
+    <string name="pref_language">pref_language</string>
+
+    <!-- Settings summaries -->
+    <string name="pref_gpu_acceleration_summary">USE GPU FOR ML INFERENCE ACCELERATION</string>
+    <string name="pref_nnapi_summary">USE ANDROID NNAPI DELEGATE (DEVICE-DEPENDENT)</string>
+    <string name="pref_confidence_threshold_summary">MINIMUM DETECTION CONFIDENCE: %d%%</string>
+    <string name="pref_scanline_intensity_summary">CRT SCANLINE OVERLAY INTENSITY: %d%%</string>
+    <string name="pref_night_mode_summary">AUTOMATIC LOW-LIGHT ENHANCEMENT</string>
+    <string name="pref_audio_alerts_summary">PLAY AUDIO FOR HAZARD ALERTS</string>
+    <string name="pref_vibration_alerts_summary">VIBRATE FOR HAZARD ALERTS</string>
+    <string name="pref_sync_diagram_summary">SHOW OBJECT RELATIONSHIP DIAGRAM</string>
+    <string name="pref_depth_labels_summary">SHOW DEPTH ESTIMATION LABELS</string>
+    <string name="pref_camera_resolution_summary">CAMERA INPUT RESOLUTION</string>
+    <string name="pref_language_summary">APP LANGUAGE</string>
+
+    <!-- Weather conditions -->
+    <string name="weather_clear">CLEAR</string>
+    <string name="weather_partly_cloudy">PARTLY CLOUDY</string>
+    <string name="weather_cloudy">CLOUDY</string>
+    <string name="weather_overcast">OVERCAST</string>
+    <string name="weather_rainy">RAINY</string>
+    <string name="weather_foggy">FOGGY</string>
+    <string name="weather_sunset_sunrise">SUNSET/SUNRISE</string>
+    <string name="weather_stormy">STORMY</string>
+    <string name="weather_unknown">UNKNOWN</string>
+
+    <!-- Scene summary -->
+    <string name="scene_summary">%d OBJECTS | %s | THREAT: %s</string>
+
+    <!-- Sync diagram -->
+    <string name="sync_diagram_label">SYNC DIAGRAM</string>
+    <string name="relationship_on">ON</string>
+    <string name="relationship_near">NEAR</string>
+    <string name="relationship_contains">CONTAINS</string>
+    <string name="relationship_blocks">BLOCKS</string>
+    <string name="relationship_supports">SUPPORTS</string>
+
+    <!-- Error messages -->
+    <string name="error_camera_init">CAMERA INITIALIZATION FAILED</string>
+    <string name="error_model_load">MODEL LOAD FAILED: %s</string>
+    <string name="error_native_lib">NATIVE LIBRARY FAILED TO LOAD</string>
+    <string name="error_opengl">OPENGL ES 3.0 NOT SUPPORTED</string>
+
+    <!-- Accessibility -->
+    <string name="content_desc_camera_view">CAMERA VIEW WITH AR OVERLAY</string>
+    <string name="content_desc_overlay_view">HUD OVERLAY WITH DETECTION INFORMATION</string>
+    <string name="content_desc_sync_diagram">OBJECT RELATIONSHIP DIAGRAM</string>
+    <string name="content_desc_info_panel">DETECTED OBJECT DETAIL PANEL</string>
+    <string name="content_desc_mode_button_scan">SWITCH TO SCAN MODE</string>
+    <string name="content_desc_mode_button_path">SWITCH TO PATH MODE</string>
+    <string name="content_desc_mode_button_identify">SWITCH TO IDENTIFY MODE</string>
+    <string name="content_desc_close_button">CLOSE PANEL</string>
+</resources>

@@ -1,0 +1,299 @@
+{
+  "rules": [
+    {
+      "objectClass": "car",
+      "baseLevel": 3,
+      "triggers": ["MOVING VEHICLE NEARBY", "VEHICLE IN MOTION", "PARKED VEHICLE IN PATH"],
+      "distanceMultiplier": true,
+      "maxDistance": 50.0,
+      "alertMessage": "CAUTION: VEHICLE APPROACHING"
+    },
+    {
+      "objectClass": "motorcycle",
+      "baseLevel": 3,
+      "triggers": ["MOTORCYCLE DETECTED", "TWO-WHEELED VEHICLE IN MOTION", "FAST-MOVING VEHICLE"],
+      "distanceMultiplier": true,
+      "maxDistance": 40.0,
+      "alertMessage": "CAUTION: MOTORCYCLE NEARBY — MAY BE IN BLIND SPOT"
+    },
+    {
+      "objectClass": "bus",
+      "baseLevel": 3,
+      "triggers": ["LARGE VEHICLE IN VICINITY", "BUS IN MOTION", "HEAVY VEHICLE APPROACHING"],
+      "distanceMultiplier": true,
+      "maxDistance": 60.0,
+      "alertMessage": "CAUTION: BUS APPROACHING — WIDE VEHICLE"
+    },
+    {
+      "objectClass": "train",
+      "baseLevel": 3,
+      "triggers": ["TRAIN ON TRACKS", "RAILED VEHICLE DETECTED", "RAIL CROSSING HAZARD"],
+      "distanceMultiplier": true,
+      "maxDistance": 100.0,
+      "alertMessage": "DANGER: TRAIN IN VICINITY — STAY OFF TRACKS"
+    },
+    {
+      "objectClass": "truck",
+      "baseLevel": 3,
+      "triggers": ["HEAVY VEHICLE NEARBY", "TRUCK IN MOTION", "LARGE CARGO VEHICLE"],
+      "distanceMultiplier": true,
+      "maxDistance": 60.0,
+      "alertMessage": "CAUTION: TRUCK NEARBY — LARGE BLIND SPOTS"
+    },
+    {
+      "objectClass": "airplane",
+      "baseLevel": 3,
+      "triggers": ["AIRCRAFT DETECTED", "LOW-FLYING AIRPLANE", "RUNWAY INCURSION RISK"],
+      "distanceMultiplier": true,
+      "maxDistance": 200.0,
+      "alertMessage": "DANGER: AIRCRAFT IN VICINITY — STAY CLEAR"
+    },
+    {
+      "objectClass": "boat",
+      "baseLevel": 3,
+      "triggers": ["WATERCRAFT DETECTED", "BOAT IN MOTION", "DOCKING VESSEL"],
+      "distanceMultiplier": true,
+      "maxDistance": 80.0,
+      "alertMessage": "CAUTION: WATERCRAFT NEARBY — SLIPPERY SURFACES"
+    },
+    {
+      "objectClass": "bear",
+      "baseLevel": 3,
+      "triggers": ["WILD PREDATOR DETECTED", "BEAR IN VICINITY", "DANGEROUS ANIMAL NEARBY"],
+      "distanceMultiplier": true,
+      "maxDistance": 50.0,
+      "alertMessage": "DANGER: BEAR DETECTED — BACK AWAY SLOWLY"
+    },
+    {
+      "objectClass": "knife",
+      "baseLevel": 3,
+      "triggers": ["SHARP BLADE DETECTED", "CUTTING INSTRUMENT VISIBLE", "WEAPON-LIKE OBJECT"],
+      "distanceMultiplier": false,
+      "maxDistance": 5.0,
+      "alertMessage": "DANGER: SHARP BLADE DETECTED"
+    },
+    {
+      "objectClass": "scissors",
+      "baseLevel": 3,
+      "triggers": ["SHARP CUTTING TOOL DETECTED", "SCISSORS VISIBLE", "POTENTIALLY DANGEROUS TOOL"],
+      "distanceMultiplier": false,
+      "maxDistance": 5.0,
+      "alertMessage": "DANGER: SHARP CUTTING TOOL DETECTED"
+    },
+    {
+      "objectClass": "bicycle",
+      "baseLevel": 2,
+      "triggers": ["BICYCLE IN PATH", "CYCLIST APPROACHING", "TWO-WHEELED VEHICLE NEARBY"],
+      "distanceMultiplier": true,
+      "maxDistance": 20.0,
+      "alertMessage": "CAUTION: BICYCLE NEARBY — WATCH FOR CYCLIST"
+    },
+    {
+      "objectClass": "dog",
+      "baseLevel": 2,
+      "triggers": ["DOG DETECTED", "CANINE IN VICINITY", "ANIMAL MAY BE UNPREDICTABLE"],
+      "distanceMultiplier": true,
+      "maxDistance": 15.0,
+      "alertMessage": "CAUTION: DOG NEARBY — APPROACH WITH CARE"
+    },
+    {
+      "objectClass": "horse",
+      "baseLevel": 2,
+      "triggers": ["LARGE ANIMAL DETECTED", "HORSE IN VICINITY", "EQUINE NEARBY"],
+      "distanceMultiplier": true,
+      "maxDistance": 20.0,
+      "alertMessage": "CAUTION: HORSE NEARBY — MOVE CALMLY AND QUIETLY"
+    },
+    {
+      "objectClass": "elephant",
+      "baseLevel": 2,
+      "triggers": ["VERY LARGE ANIMAL DETECTED", "ELEPHANT IN VICINITY", "MASSIVE MAMMAL NEARBY"],
+      "distanceMultiplier": true,
+      "maxDistance": 40.0,
+      "alertMessage": "CAUTION: ELEPHANT NEARBY — MAINTAIN SAFE DISTANCE"
+    },
+    {
+      "objectClass": "cow",
+      "baseLevel": 2,
+      "triggers": ["LARGE LIVESTOCK DETECTED", "COW IN VICINITY", "BOVINE NEARBY"],
+      "distanceMultiplier": true,
+      "maxDistance": 15.0,
+      "alertMessage": "CAUTION: COW NEARBY — GIVE LIVESTOCK SPACE"
+    },
+    {
+      "objectClass": "fire_hydrant",
+      "baseLevel": 2,
+      "triggers": ["FIRE HYDRANT BLOCKED", "EMERGENCY ACCESS OBSTRUCTED", "HYDRANT ZONE VIOLATION"],
+      "distanceMultiplier": false,
+      "maxDistance": 3.0,
+      "alertMessage": "WARNING: FIRE HYDRANT — DO NOT BLOCK EMERGENCY ACCESS"
+    },
+    {
+      "objectClass": "traffic_light",
+      "baseLevel": 2,
+      "triggers": ["INTERSECTION AHEAD", "TRAFFIC SIGNAL ACTIVE", "SIGNALIZED CROSSING"],
+      "distanceMultiplier": false,
+      "maxDistance": 30.0,
+      "alertMessage": "CAUTION: TRAFFIC SIGNAL — OBSERVE SIGNAL STATE"
+    },
+    {
+      "objectClass": "stop_sign",
+      "baseLevel": 2,
+      "triggers": ["STOP SIGN AHEAD", "INTERSECTION APPROACH", "MANDATORY STOP ZONE"],
+      "distanceMultiplier": false,
+      "maxDistance": 30.0,
+      "alertMessage": "CAUTION: STOP SIGN — PREPARE TO STOP"
+    },
+    {
+      "objectClass": "skateboard",
+      "baseLevel": 2,
+      "triggers": ["SKATEBOARDER IN AREA", "MOVING SKATEBOARD", "FAST-MOVING PEDESTRIAN DEVICE"],
+      "distanceMultiplier": true,
+      "maxDistance": 10.0,
+      "alertMessage": "CAUTION: SKATEBOARDER — UNPREDICTABLE MOVEMENT"
+    },
+    {
+      "objectClass": "sports_ball",
+      "baseLevel": 2,
+      "triggers": ["BALL IN MOTION", "SPORTING ACTIVITY NEARBY", "PROJECTILE HAZARD"],
+      "distanceMultiplier": true,
+      "maxDistance": 10.0,
+      "alertMessage": "CAUTION: SPORTS BALL — WATCH FOR INCOMING"
+    },
+    {
+      "objectClass": "baseball_bat",
+      "baseLevel": 2,
+      "triggers": ["BAT DETECTED", "SWINGING HAZARD", "BLUNT INSTRUMENT VISIBLE"],
+      "distanceMultiplier": true,
+      "maxDistance": 5.0,
+      "alertMessage": "CAUTION: BASEBALL BAT — STAY CLEAR OF SWING ZONE"
+    }
+  ],
+  "proximityRules": {
+    "closeRange": { "distance": 3.0, "multiplier": 2.0, "description": "DANGER ZONE — IMMEDIATE VICINITY" },
+    "mediumRange": { "distance": 10.0, "multiplier": 1.5, "description": "CAUTION ZONE — NEARBY" },
+    "farRange": { "distance": 30.0, "multiplier": 1.0, "description": "AWARENESS ZONE — VISIBLE" }
+  },
+  "combinationRules": [
+    {
+      "objects": ["car", "person"],
+      "proximity": 5.0,
+      "levelOverride": 3,
+      "message": "DANGER: VEHICLE NEAR PEDESTRIAN — COLLISION RISK"
+    },
+    {
+      "objects": ["truck", "person"],
+      "proximity": 7.0,
+      "levelOverride": 3,
+      "message": "DANGER: HEAVY VEHICLE NEAR PEDESTRIAN — EXTREME RISK"
+    },
+    {
+      "objects": ["bus", "person"],
+      "proximity": 6.0,
+      "levelOverride": 3,
+      "message": "DANGER: BUS NEAR PEDESTRIAN — WIDE VEHICLE HAZARD"
+    },
+    {
+      "objects": ["motorcycle", "person"],
+      "proximity": 4.0,
+      "levelOverride": 3,
+      "message": "CAUTION: MOTORCYCLE NEAR PEDESTRIAN — HARD TO SEE"
+    },
+    {
+      "objects": ["bicycle", "person"],
+      "proximity": 3.0,
+      "levelOverride": 2,
+      "message": "CAUTION: BICYCLE NEAR PEDESTRIAN — COLLISION RISK"
+    },
+    {
+      "objects": ["fire_hydrant", "car"],
+      "proximity": 3.0,
+      "levelOverride": 2,
+      "message": "WARNING: VEHICLE BLOCKING FIRE HYDRANT — PARKING VIOLATION"
+    },
+    {
+      "objects": ["stop_sign", "car"],
+      "proximity": 10.0,
+      "levelOverride": 2,
+      "message": "CAUTION: VEHICLE APPROACHING STOP SIGN — INTERSECTION HAZARD"
+    },
+    {
+      "objects": ["traffic_light", "car"],
+      "proximity": 15.0,
+      "levelOverride": 2,
+      "message": "CAUTION: VEHICLE AT SIGNALIZED INTERSECTION"
+    },
+    {
+      "objects": ["dog", "person"],
+      "proximity": 3.0,
+      "levelOverride": 2,
+      "message": "CAUTION: DOG NEAR PERSON — ANIMAL INTERACTION RISK"
+    },
+    {
+      "objects": ["knife", "person"],
+      "proximity": 3.0,
+      "levelOverride": 3,
+      "message": "DANGER: SHARP BLADE NEAR PERSON — WEAPON CONCERN"
+    },
+    {
+      "objects": ["scissors", "person"],
+      "proximity": 2.0,
+      "levelOverride": 3,
+      "message": "DANGER: SHARP TOOL NEAR PERSON — POTENTIAL HAZARD"
+    },
+    {
+      "objects": ["bear", "person"],
+      "proximity": 20.0,
+      "levelOverride": 3,
+      "message": "DANGER: BEAR NEAR PERSON — SEEK SAFETY IMMEDIATELY"
+    },
+    {
+      "objects": ["horse", "person"],
+      "proximity": 4.0,
+      "levelOverride": 2,
+      "message": "CAUTION: HORSE NEAR PERSON — MOVE SLOWLY AND CALMLY"
+    },
+    {
+      "objects": ["elephant", "person"],
+      "proximity": 15.0,
+      "levelOverride": 3,
+      "message": "DANGER: ELEPHANT NEAR PERSON — KEEP MAXIMUM DISTANCE"
+    },
+    {
+      "objects": ["cow", "person"],
+      "proximity": 4.0,
+      "levelOverride": 2,
+      "message": "CAUTION: LIVESTOCK NEAR PERSON — ANIMAL MAY STARTLE"
+    },
+    {
+      "objects": ["train", "car"],
+      "proximity": 15.0,
+      "levelOverride": 3,
+      "message": "DANGER: VEHICLE NEAR RAIL CROSSING — TRAIN APPROACHING"
+    },
+    {
+      "objects": ["skateboard", "person"],
+      "proximity": 3.0,
+      "levelOverride": 2,
+      "message": "CAUTION: SKATEBOARDER NEAR PEDESTRIAN — UNPREDICTABLE PATH"
+    },
+    {
+      "objects": ["baseball_bat", "person"],
+      "proximity": 3.0,
+      "levelOverride": 2,
+      "message": "CAUTION: BAT NEAR PERSON — SWINGING HAZARD ZONE"
+    },
+    {
+      "objects": ["car", "bicycle"],
+      "proximity": 3.0,
+      "levelOverride": 3,
+      "message": "DANGER: VEHICLE NEAR CYCLIST — SHARE THE ROAD"
+    },
+    {
+      "objects": ["truck", "bicycle"],
+      "proximity": 5.0,
+      "levelOverride": 3,
+      "message": "DANGER: HEAVY VEHICLE NEAR CYCLIST — EXTREME BLIND SPOT RISK"
+    }
+  ]
+}

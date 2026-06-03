@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- ============================================================
+     Sync Vision — Corner Bracket Drawable
+     Shape drawable for HUD corner brackets (L-shaped corners)
+     resembling a camera viewfinder / targeting reticle
+     Uses layer-list with rotated green L-shapes
+     ============================================================ -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Top-left corner bracket -->
+    <item
+        android:left="12dp"
+        android:top="12dp"
+        android:right="340dp"
+        android:bottom="580dp">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/sync_green" />
+            <size android:width="24dp" android:height="24dp" />
+        </shape>
+    </item>
+
+    <!-- Top-left horizontal arm cutout (leaves L-shape) -->
+    <item
+        android:left="14dp"
+        android:top="14dp"
+        android:right="342dp"
+        android:bottom="578dp">
+        <shape android:shape="rectangle">
+            <solid android:color="@android:color/transparent" />
+        </shape>
+    </item>
+
+    <!-- Top-right corner bracket -->
+    <item
+        android:left="340dp"
+        android:top="12dp"
+        android:right="12dp"
+        android:bottom="580dp">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/sync_green" />
+        </shape>
+    </item>
+
+    <!-- Top-right horizontal arm cutout -->
+    <item
+        android:left="342dp"
+        android:top="14dp"
+        android:right="14dp"
+        android:bottom="578dp">
+        <shape android:shape="rectangle">
+            <solid android:color="@android:color/transparent" />
+        </shape>
+    </item>
+
+    <!-- Bottom-left corner bracket -->
+    <item
+        android:left="12dp"
+        android:top="580dp"
+        android:right="340dp"
+        android:bottom="12dp">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/sync_green" />
+        </shape>
+    </item>
+
+    <!-- Bottom-left horizontal arm cutout -->
+    <item
+        android:left="14dp"
+        android:top="582dp"
+        android:right="342dp"
+        android:bottom="14dp">
+        <shape android:shape="rectangle">
+            <solid android:color="@android:color/transparent" />
+        </shape>
+    </item>
+
+    <!-- Bottom-right corner bracket -->
+    <item
+        android:left="340dp"
+        android:top="580dp"
+        android:right="12dp"
+        android:bottom="12dp">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/sync_green" />
+        </shape>
+    </item>
+
+    <!-- Bottom-right horizontal arm cutout -->
+    <item
+        android:left="342dp"
+        android:top="582dp"
+        android:right="14dp"
+        android:bottom="14dp">
+        <shape android:shape="rectangle">
+            <solid android:color="@android:color/transparent" />
+        </shape>
+    </item>
+
+</layer-list>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- ============================================================
+     Sync Vision — Camera Fragment Layout
+     Simple FrameLayout containing the GLSurfaceView for camera
+     preview and OpenGL overlay rendering
+     ============================================================ -->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/camera_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    tools:context="com.syncvision.app.ui.CameraFragment">
+
+    <!-- GLSurfaceView is injected programmatically via setGLSurfaceView()
+         from GLSurfaceManager. The view is added as a child of this
+         FrameLayout at runtime, NOT defined here in XML. This layout
+         serves as the container that the Fragment manages. -->
+
+</FrameLayout>

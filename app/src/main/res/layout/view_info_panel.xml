@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- ============================================================
+     Sync Vision — Info Panel View Layout
+     Vertical LinearLayout showing detected object details:
+     name, description, distance, hazard level, confidence
+     Terminal / CLI aesthetic with green-on-dark styling
+     ============================================================ -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/info_panel_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/dark_background_translucent_90"
+    android:padding="@dimen/info_panel_padding">
+
+    <!-- Top row: title area + close button -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/spacing_medium">
+
+        <!-- Object name (large, ALL CAPS, terminal green, bold) -->
+        <TextView
+            android:id="@+id/info_object_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_toStartOf="@+id/info_close_button"
+            android:text="OBJECT"
+            android:textAllCaps="true"
+            android:textColor="@color/sync_green"
+            android:textSize="@dimen/info_panel_title_size"
+            android:textStyle="bold"
+            android:fontFamily="monospace"
+            android:ellipsize="end"
+            android:maxLines="2" />
+
+        <!-- Close button (terminal green X) -->
+        <TextView
+            android:id="@+id/info_close_button"
+            android:layout_width="@dimen/close_button_size"
+            android:layout_height="@dimen/close_button_size"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:text="@string/info_close"
+            android:textAllCaps="true"
+            android:textColor="@color/sync_green"
+            android:textSize="@dimen/info_panel_title_size"
+            android:textStyle="bold"
+            android:fontFamily="monospace"
+            android:contentDescription="@string/content_desc_close_button"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:focusable="true" />
+
+    </RelativeLayout>
+
+    <!-- Divider (green line) -->
+    <View
+        android:id="@+id/info_divider"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/info_panel_divider_height"
+        android:background="@color/sync_green"
+        android:layout_marginBottom="@dimen/spacing_large" />
+
+    <!-- Description (2-3 lines, dimmer green) -->
+    <TextView
+        android:id="@+id/info_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="DESCRIPTION UNAVAILABLE"
+        android:textColor="@color/sync_green_dim"
+        android:textSize="@dimen/info_panel_body_size"
+        android:fontFamily="monospace"
+        android:maxLines="3"
+        android:ellipsize="end"
+        android:lineSpacingExtra="4dp"
+        android:layout_marginBottom="@dimen/spacing_large" />
+
+    <!-- Distance label -->
+    <TextView
+        android:id="@+id/info_distance"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="DIST: --"
+        android:textColor="@color/sync_green"
+        android:textSize="@dimen/info_panel_body_size"
+        android:fontFamily="monospace"
+        android:textStyle="bold"
+        android:layout_marginBottom="@dimen/spacing_medium" />
+
+    <!-- Hazard level indicator row -->
+    <LinearLayout
+        android:id="@+id/info_hazard_row"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="@dimen/spacing_medium">
+
+        <!-- Hazard label -->
+        <TextView
+            android:id="@+id/info_hazard_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="HAZARD: "
+            android:textColor="@color/sync_green"
+            android:textSize="@dimen/info_panel_body_size"
+            android:fontFamily="monospace"
+            android:textStyle="bold" />
+
+        <!-- Hazard indicator (pulsing dot) -->
+        <View
+            android:id="@+id/info_hazard_indicator"
+            android:layout_width="@dimen/hazard_indicator_size"
+            android:layout_height="@dimen/hazard_indicator_size"
+            android:layout_marginStart="@dimen/spacing_small"
+            android:layout_marginEnd="@dimen/spacing_small"
+            android:background="@drawable/hazard_indicator" />
+
+        <!-- Hazard level text -->
+        <TextView
+            android:id="@+id/info_hazard_level"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SAFE"
+            android:textColor="@color/sync_green"
+            android:textSize="@dimen/info_panel_body_size"
+            android:fontFamily="monospace"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <!-- Confidence percentage -->
+    <TextView
+        android:id="@+id/info_confidence"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="CONF: 0%"
+        android:textColor="@color/sync_green"
+        android:textSize="@dimen/info_panel_body_size"
+        android:fontFamily="monospace"
+        android:textStyle="bold"
+        android:layout_marginBottom="@dimen/spacing_large" />
+
+    <!-- Spacer to push privacy to bottom if needed -->
+    <View
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <!-- Privacy reminder at bottom -->
+    <TextView
+        android:id="@+id/info_privacy"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/privacy_statement"
+        android:textColor="@color/sync_green_translucent_40"
+        android:textSize="@dimen/hud_text_size_small"
+        android:fontFamily="monospace"
+        android:lineSpacingExtra="2dp" />
+
+</LinearLayout>

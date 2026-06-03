@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- ============================================================
+     Sync Vision — Color Resources
+     Terminal green color scheme for AR camera overlay
+     ============================================================ -->
+<resources>
+    <!-- Primary terminal green palette -->
+    <color name="sync_green">#FF00FF41</color>
+    <color name="sync_green_dim">#FF00CC33</color>
+    <color name="sync_green_bright">#FF33FF66</color>
+
+    <!-- Dark background palette -->
+    <color name="dark_background">#FF0A0A0A</color>
+    <color name="dark_surface">#FF111111</color>
+    <color name="dark_panel">#FF1A1A1A</color>
+
+    <!-- Hazard level colors -->
+    <color name="hazard_high">#FFFF3333</color>
+    <color name="hazard_medium">#FFFF9900</color>
+    <color name="hazard_low">#FFFFFF00</color>
+
+    <!-- Base colors -->
+    <color name="white">#FFFFFFFF</color>
+    <color name="black">#FF000000</color>
+
+    <!-- Derived / semantic colors -->
+    <color name="sync_green_translucent_80">#CC00FF41</color>
+    <color name="sync_green_translucent_60">#9900FF41</color>
+    <color name="sync_green_translucent_40">#6600FF41</color>
+    <color name="sync_green_translucent_20">#3300FF41</color>
+    <color name="sync_green_translucent_10">#1A00FF41</color>
+
+    <color name="dark_background_translucent_90">#E60A0A0A</color>
+    <color name="dark_background_translucent_80">#CC0A0A0A</color>
+    <color name="dark_background_translucent_70">#B30A0A0A</color>
+    <color name="dark_background_translucent_55">#8C0A0A0A</color>
+
+    <color name="scanline_green">#0800FF41</color>
+
+    <color name="hazard_high_translucent">#CCFF3333</color>
+    <color name="hazard_medium_translucent">#CCFF9900</color>
+    <color name="hazard_low_translucent">#CCFFFF00</color>
+</resources>

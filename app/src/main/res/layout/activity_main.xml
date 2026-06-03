@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- ============================================================
+     Sync Vision — Main Activity Layout
+     Fullscreen FrameLayout with camera GL surface, HUD overlay,
+     sync diagram, info panel, and mode toggle bar
+     ============================================================ -->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    tools:context="com.syncvision.app.ui.MainActivity">
+
+    <!-- Layer 1: Camera preview + OpenGL overlay (bottom of z-order) -->
+    <android.opengl.GLSurfaceView
+        android:id="@+id/gl_surface_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <!-- Layer 2: Canvas-based HUD overlay (transparent except drawn elements) -->
+    <com.syncvision.app.ui.OverlayView
+        android:id="@+id/overlay_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <!-- Layer 3: Sync Diagram (bottom-right corner) -->
+    <com.syncvision.app.ui.SyncDiagramView
+        android:id="@+id/sync_diagram_view"
+        android:layout_width="@dimen/sync_diagram_size"
+        android:layout_height="@dimen/sync_diagram_size"
+        android:layout_gravity="bottom|end"
+        android:layout_marginEnd="@dimen/hud_margin"
+        android:layout_marginBottom="@dimen/mode_bar_height"
+        android:visibility="visible"
+        android:contentDescription="@string/content_desc_sync_diagram" />
+
+    <!-- Layer 4: Info Panel (right side, initially GONE) -->
+    <com.syncvision.app.ui.InfoPanelView
+        android:id="@+id/info_panel_view"
+        android:layout_width="@dimen/info_panel_width"
+        android:layout_height="match_parent"
+        android:layout_gravity="end"
+        android:visibility="gone"
+        android:contentDescription="@string/content_desc_info_panel" />
+
+    <!-- Layer 5: Bottom mode toggle bar -->
+    <LinearLayout
+        android:id="@+id/mode_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/mode_bar_height"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginBottom="@dimen/spacing_medium"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:background="@drawable/mode_button_bg"
+        android:padding="@dimen/spacing_tiny">
+
+        <!-- SCAN mode button -->
+        <Button
+            android:id="@+id/btn_mode_scan"
+            android:layout_width="@dimen/mode_button_width"
+            android:layout_height="@dimen/mode_button_height"
+            android:layout_margin="@dimen/mode_button_margin"
+            android:text="@string/mode_scan"
+            android:textAllCaps="true"
+            android:fontFamily="monospace"
+            android:textSize="@dimen/mode_button_text_size"
+            android:textColor="@color/black"
+            android:background="@drawable/mode_button_bg"
+            android:contentDescription="@string/content_desc_mode_button_scan" />
+
+        <!-- PATH mode button -->
+        <Button
+            android:id="@+id/btn_mode_path"
+            android:layout_width="@dimen/mode_button_width"
+            android:layout_height="@dimen/mode_button_height"
+            android:layout_margin="@dimen/mode_button_margin"
+            android:text="@string/mode_path"
+            android:textAllCaps="true"
+            android:fontFamily="monospace"
+            android:textSize="@dimen/mode_button_text_size"
+            android:textColor="@color/sync_green"
+            android:background="@drawable/mode_button_bg"
+            android:contentDescription="@string/content_desc_mode_button_path" />
+
+        <!-- ID mode button -->
+        <Button
+            android:id="@+id/btn_mode_identify"
+            android:layout_width="@dimen/mode_button_width"
+            android:layout_height="@dimen/mode_button_height"
+            android:layout_margin="@dimen/mode_button_margin"
+            android:text="@string/mode_identify"
+            android:textAllCaps="true"
+            android:fontFamily="monospace"
+            android:textSize="@dimen/mode_button_text_size"
+            android:textColor="@color/sync_green"
+            android:background="@drawable/mode_button_bg"
+            android:contentDescription="@string/content_desc_mode_button_identify" />
+
+    </LinearLayout>
+
+</FrameLayout>
