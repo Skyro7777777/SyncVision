@@ -10,12 +10,14 @@
  * in contour_processor.cpp, path_finder.cpp, sync_diagram.cpp,
  * label_placer.cpp, and jni_bridge.cpp.
  *
- * Sync Vision — Android Camera App with ML-powered Overlay
+ * Sync Vision â€” Android Camera App with ML-powered Overlay
  * Package: com.syncvision.app.nativelib
  * Target SDK: 29+
  */
 
 package com.syncvision.app.nativelib;
+
+import androidx.annotation.NonNull;
 
 /**
  * Constants that define the binary data format exchanged between the
@@ -39,7 +41,7 @@ package com.syncvision.app.nativelib;
  */
 public final class NativeConstants {
 
-    // Private constructor — this is a constants-only class
+    // Private constructor â€” this is a constants-only class
     private NativeConstants() {
         throw new AssertionError("NativeConstants is a constants class; do not instantiate.");
     }
@@ -245,16 +247,16 @@ public final class NativeConstants {
     // Hazard Levels
     // ================================================================
 
-    /** No hazard — safe to traverse/approach. */
+    /** No hazard â€” safe to traverse/approach. */
     public static final int HAZARD_NONE = 0;
 
-    /** Low hazard — minor risk, proceed with caution. */
+    /** Low hazard â€” minor risk, proceed with caution. */
     public static final int HAZARD_LOW = 1;
 
-    /** Medium hazard — moderate risk, consider alternative route. */
+    /** Medium hazard â€” moderate risk, consider alternative route. */
     public static final int HAZARD_MEDIUM = 2;
 
-    /** High hazard — significant risk, avoid if possible. */
+    /** High hazard â€” significant risk, avoid if possible. */
     public static final int HAZARD_HIGH = 3;
 
     // ================================================================
