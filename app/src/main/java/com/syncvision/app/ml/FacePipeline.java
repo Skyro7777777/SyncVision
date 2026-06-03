@@ -4,14 +4,14 @@
  * MediaPipe BlazeFace face detection pipeline for the Sync Vision app.
  * Uses MediaPipe Tasks Vision FaceDetector for lightweight, on-device
  * face detection. This pipeline counts and outlines faces but performs
- * NO facial recognition or identity extraction — privacy is paramount.
+ * NO facial recognition or identity extraction â€” privacy is paramount.
  *
  * Input: camera frame Bitmap
  * Output: FaceResult (face bounding rectangles + count)
  *
  * Runs every 2nd frame to balance responsiveness with performance.
  *
- * Sync Vision — Android Camera App with ML-powered Overlay
+ * Sync Vision â€” Android Camera App with ML-powered Overlay
  * Package: com.syncvision.app.ml
  * Target SDK: 29+
  */
@@ -19,7 +19,6 @@
 package com.syncvision.app.ml;
 
 import android.graphics.Bitmap;
-import android.graphics.Rect;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
@@ -197,13 +196,13 @@ public class FacePipeline {
             for (com.google.mediapipe.tasks.components.containers.Detection detection :
                     result.detections()) {
                 if (detection.boundingBox() != null) {
-                    Rect bbox = detection.boundingBox();
+                    com.google.mediapipe.tasks.components.containers.RectF bbox = detection.boundingBox();
 
                     // Normalize from pixel coordinates to [0, 1]
-                    float left = (float) bbox.left / lastFrameWidth;
-                    float top = (float) bbox.top / lastFrameHeight;
-                    float right = (float) bbox.right / lastFrameWidth;
-                    float bottom = (float) bbox.bottom / lastFrameHeight;
+                    float left = bbox.left / lastFrameWidth;
+                    float top = bbox.top / lastFrameHeight;
+                    float right = bbox.right / lastFrameWidth;
+                    float bottom = bbox.bottom / lastFrameHeight;
 
                     // Clamp to [0, 1]
                     left = Math.max(0f, Math.min(1f, left));
@@ -227,7 +226,7 @@ public class FacePipeline {
      * Confirms that this pipeline does NOT collect any biometric or
      * identity data. This method exists for auditing and compliance.
      *
-     * @return Always returns false — no identity data is ever collected.
+     * @return Always returns false â€” no identity data is ever collected.
      */
     @SuppressWarnings("unused")
     public static boolean collectsIdentityData() {
