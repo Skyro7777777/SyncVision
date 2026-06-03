@@ -364,85 +364,156 @@ public class MainActivity extends AppCompatActivity {
     /**
      * Initializes all core components: camera, GL surface, frame dispatcher,
      * overlay renderer, native processor, and scene understanding.
+     * Each component is wrapped in try-catch to prevent a single failure
+     * from crashing the entire app.
      */
     private void initializeComponents() {
-        // Native processor (JNI bridge to C++)
-        nativeProcessor = new NativeProcessor();
+        try {
+            // Native processor (JNI bridge to C++)
+            nativeProcessor = new NativeProcessor();
+        } catch (Exception e) {
+            Log.e(TAG, "Failed to initialize NativeProcessor", e);
+        }
 
-        // Camera manager
-        cameraManager = new CameraManager(this, this);
+        try {
+            // Camera manager
+            cameraManager = new CameraManager(this, this);
+        } catch (Exception e) {
+            Log.e(TAG, "Failed to initialize CameraManager", e);
+        }
 
-        // GL surface manager (OpenGL ES 3.0 rendering)
-        glSurfaceManager = new GLSurfaceManager(this);
+        try {
+            // GL surface manager (OpenGL ES 3.0 rendering)
+            glSurfaceManager = new GLSurfaceManager(this);
+        } catch (Exception e) {
+            Log.e(TAG, "Failed to initialize GLSurfaceManager", e);
+        }
 
-        // Frame dispatcher (ML pipeline hub)
-        frameDispatcher = new FrameDispatcher();
+        try {
+            // Frame dispatcher (ML pipeline hub)
+            frameDispatcher = new FrameDispatcher();
+        } catch (Exception e) {
+            Log.e(TAG, "Failed to initialize FrameDispatcher", e);
+        }
 
-        // Overlay renderer (high-level rendering API)
-        overlayRenderer = new OverlayRenderer(
-                glSurfaceManager.getRenderer(),
-                nativeProcessor
-        );
+        try {
+            // Overlay renderer (high-level rendering API)
+            overlayRenderer = new OverlayRenderer(
+                    glSurfaceManager.getRenderer(),
+                    nativeProcessor
+            );
+        } catch (Exception e) {
+            Log.e(TAG, "Failed to initialize OverlayRenderer", e);
+        }
 
-        // Scene understanding engine
-        sceneUnderstanding = new SceneUnderstanding();
+        try {
+            // Scene understanding engine
+            sceneUnderstanding = new SceneUnderstanding();
+        } catch (Exception e) {
+            Log.e(TAG, "Failed to initialize SceneUnderstanding", e);
+        }
 
         // Initialize ML pipelines
         initializePipelines();
 
         // Vibrator for haptic alerts
-        vibrator = (Vibrator) getSystemService(VIBRATOR_SERVICE);
+        try {
+            vibrator = (Vibrator) getSystemService(VIBRATOR_SERVICE);
+        } catch (Exception e) {
+            Log.e(TAG, "Failed to get Vibrator service", e);
+        }
 
         Log.i(TAG, "Core components initialized");
     }
 
     /**
      * Initializes all ML pipelines and registers them with the frame dispatcher.
+     * Each pipeline is wrapped in try-catch so a single model failure
+     * does not prevent the rest from loading.
      */
     private void initializePipelines() {
         // Segmentation pipeline (runs every frame)
-        segmentationPipeline = new SegmentationPipeline();
-        segmentationPipeline.initialize();
-        frameDispatcher.setSegmentationPipeline(segmentationPipeline);
+        try {
+            segmentationPipeline = new SegmentationPipeline();
+            segmentationPipeline.initialize();
+            frameDispatcher.setSegmentationPipeline(segmentationPipeline);
+        } catch (Exception e) {
+            Log.e(TAG, "Failed to initialize SegmentationPipeline", e);
+        }
 
         // Detection pipeline (runs every frame)
-        detectionPipeline = new DetectionPipeline();
-        detectionPipeline.initialize();
-        frameDispatcher.setDetectionPipeline(detectionPipeline);
+        try {
+            detectionPipeline = new DetectionPipeline();
+            detectionPipeline.initialize();
+            frameDispatcher.setDetectionPipeline(detectionPipeline);
+        } catch (Exception e) {
+            Log.e(TAG, "Failed to initialize DetectionPipeline", e);
+        }
 
         // Depth pipeline (runs every 3rd frame)
-        depthPipeline = new DepthPipeline();
-        depthPipeline.initialize();
-        frameDispatcher.setDepthPipeline(depthPipeline);
+        try {
+            depthPipeline = new DepthPipeline();
+            depthPipeline.initialize();
+            frameDispatcher.setDepthPipeline(depthPipeline);
+        } catch (Exception e) {
+            Log.e(TAG, "Failed to initialize DepthPipeline", e);
+        }
 
-        // Face pipeline (runs every 2nd frame)
-        facePipeline = new FacePipeline();
-        frameDispatcher.setFacePipeline(facePipeline);
+        // Face pipeline (runs every 2nd frame) â€” requires Context for MediaPipe
+        try {
+            facePipeline = new FacePipeline();
+            facePipeline.initialize(this);
+            frameDispatcher.setFacePipeline(facePipeline);
+        } catch (Exception e) {
+            Log.e(TAG, "Failed to initialize FacePipeline", e);
+        }
 
         // Weather pipeline (runs periodically)
-        weatherPipeline = new WeatherPipeline();
-        weatherPipeline.initialize();
-        frameDispatcher.setWeatherPipeline(weatherPipeline);
+        try {
+            weatherPipeline = new WeatherPipeline();
+            weatherPipeline.initialize();
+            frameDispatcher.setWeatherPipeline(weatherPipeline);
+        } catch (Exception e) {
+            Log.e(TAG, "Failed to initialize WeatherPipeline", e);
+        }
 
         // On-demand pipelines
-        ocrPipeline = new OcrPipeline();
-        ocrPipeline.initialize();
-        frameDispatcher.setOcrPipeline(ocrPipeline);
+        try {
+            ocrPipeline = new OcrPipeline();
+            ocrPipeline.initialize();
+            frameDispatcher.setOcrPipeline(ocrPipeline);
+        } catch (Exception e) {
+            Log.e(TAG, "Failed to initialize OcrPipeline", e);
+        }
 
-        plantPipeline = new PlantPipeline();
-        plantPipeline.initialize();
-        frameDispatcher.setPlantPipeline(plantPipeline);
+        try {
+            plantPipeline = new PlantPipeline();
+            plantPipeline.initialize();
+            frameDispatcher.setPlantPipeline(plantPipeline);
+        } catch (Exception e) {
+            Log.e(TAG, "Failed to initialize PlantPipeline", e);
+        }
 
-        barcodePipeline = new BarcodePipeline();
-        barcodePipeline.initialize();
-        frameDispatcher.setBarcodePipeline(barcodePipeline);
+        try {
+            barcodePipeline = new BarcodePipeline();
+            barcodePipeline.initialize();
+            frameDispatcher.setBarcodePipeline(barcodePipeline);
+        } catch (Exception e) {
+            Log.e(TAG, "Failed to initialize BarcodePipeline", e);
+        }
 
-        landmarkPipeline = new LandmarkPipeline();
-        landmarkPipeline.initialize();
-        frameDispatcher.setLandmarkPipeline(landmarkPipeline);
+        try {
+            landmarkPipeline = new LandmarkPipeline();
+            landmarkPipeline.initialize();
+            frameDispatcher.setLandmarkPipeline(landmarkPipeline);
+        } catch (Exception e) {
+            Log.e(TAG, "Failed to initialize LandmarkPipeline", e);
+        }
 
         // Set the frame processed listener
-        frameDispatcher.setOnFrameProcessedListener(this::onFrameProcessed);
+        if (frameDispatcher != null) {
+            frameDispatcher.setOnFrameProcessedListener(this::onFrameProcessed);
+        }
 
         Log.i(TAG, "ML pipelines initialized");
     }
@@ -475,12 +546,17 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
 
+        if (cameraManager == null || glSurfaceManager == null) {
+            Log.e(TAG, "Cannot start camera: CameraManager or GLSurfaceManager is null");
+            return;
+        }
+
         // Connect the GL surface to the camera preview
         glSurfaceManager.setOnCameraPreviewProviderListener(surfaceTexture -> {
             // When the SurfaceTexture is ready, start the camera
             androidx.camera.core.Preview.SurfaceProvider provider =
                     glSurfaceManager.getCameraSurfaceProvider();
-            if (provider != null) {
+            if (provider != null && cameraManager != null) {
                 cameraManager.startCamera(provider);
             }
         });
