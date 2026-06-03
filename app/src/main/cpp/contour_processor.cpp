@@ -151,7 +151,7 @@ std::vector<std::vector<Point>> ContourProcessor::extractOutlines(
         indices[i] = i;
     }
     std::sort(indices.begin(), indices.end(),
-              [this, &contours](size_t a, size_t b) {
+              [&contours](size_t a, size_t b) {
                   return std::abs(contourArea(contours[a])) >
                          std::abs(contourArea(contours[b]));
               });
@@ -179,7 +179,7 @@ std::vector<std::vector<Point>> ContourProcessor::extractOutlines(
         }
     }
 
-    LOGI("extractOutlines: %zu contours → %zu outlines",
+    LOGI("extractOutlines: %zu contours â†’ %zu outlines",
          contours.size(), outlines.size());
     return outlines;
 }
@@ -235,7 +235,7 @@ std::vector<std::vector<Point>> ContourProcessor::traceContours(
     // Track which border pixels have been visited
     std::vector<uint8_t> visited(width * height, 0);
 
-    // 8-connected neighborhood (Moore neighborhood) — clockwise from East
+    // 8-connected neighborhood (Moore neighborhood) â€” clockwise from East
     static const int dx[8] = { 1,  1,  0, -1, -1, -1,  0,  1};
     static const int dy[8] = { 0,  1,  1,  1,  0, -1, -1, -1};
 
@@ -321,7 +321,7 @@ std::vector<Point> ContourProcessor::douglasPeucker(
         return {points[start], points[end]};
     }
 
-    // Find the point with maximum distance from the line start→end
+    // Find the point with maximum distance from the line startâ†’end
     double maxDist = 0.0;
     int splitIndex = start;
 
