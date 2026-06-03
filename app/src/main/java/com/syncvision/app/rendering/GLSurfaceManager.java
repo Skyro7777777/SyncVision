@@ -307,9 +307,9 @@ public class GLSurfaceManager {
             SurfaceTexture surfaceTexture = getCameraSurfaceTexture();
             if (surfaceTexture != null) {
                 android.view.Surface surface = new android.view.Surface(surfaceTexture);
-                request.provideSurface(surface, Runnable::run, s -> {
+                request.provideSurface(surface, Runnable::run, surfaceResult -> {
                     // Surface is no longer needed â€” release it
-                    s.release();
+                    surface.release();
                 });
             }
         };
