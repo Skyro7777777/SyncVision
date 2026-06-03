@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- ============================================================
+     Sync Vision — Theme Resources
+     Dark Material3 theme with terminal green accent
+     Fullscreen, no action bar, immersive HUD aesthetic
+     ============================================================ -->
+<resources>
+    <!-- Base application theme (dark, no action bar, fullscreen) -->
+    <style name="Theme.SyncVision" parent="Theme.Material3.Dark.NoActionBar">
+        <!-- Primary brand color (terminal green) -->
+        <item name="colorPrimary">@color/sync_green</item>
+        <item name="colorPrimaryVariant">@color/sync_green_dim</item>
+        <item name="colorOnPrimary">@color/black</item>
+
+        <!-- Secondary brand color -->
+        <item name="colorSecondary">@color/sync_green_dim</item>
+        <item name="colorSecondaryVariant">@color/sync_green_bright</item>
+        <item name="colorOnSecondary">@color/black</item>
+
+        <!-- Tertiary -->
+        <item name="colorTertiary">@color/sync_green_bright</item>
+        <item name="colorOnTertiary">@color/black</item>
+
+        <!-- Background & surface -->
+        <item name="android:colorBackground">@color/dark_background</item>
+        <item name="colorSurface">@color/dark_surface</item>
+        <item name="colorSurfaceVariant">@color/dark_panel</item>
+        <item name="colorOnSurface">@color/white</item>
+        <item name="colorOnSurfaceVariant">@color/sync_green</item>
+
+        <!-- Text colors -->
+        <item name="android:textColorPrimary">@color/white</item>
+        <item name="android:textColorSecondary">@color/sync_green</item>
+        <item name="android:textColorHint">@color/sync_green_dim</item>
+
+        <!-- Status bar -->
+        <item name="android:statusBarColor">@color/black</item>
+        <item name="android:windowLightStatusBar">false</item>
+
+        <!-- Navigation bar -->
+        <item name="android:navigationBarColor">@color/black</item>
+        <item name="android:windowLightNavigationBar">false</item>
+
+        <!-- Fullscreen window -->
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+
+        <!-- No title / action bar -->
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+
+        <!-- Window background -->
+        <item name="android:windowBackground">@color/dark_background</item>
+
+        <!-- Dialog / alert styling -->
+        <item name="alertDialogTheme">@style/Theme.SyncVision.Dialog</item>
+        <item name="dialogCornerRadius">2dp</item>
+
+        <!-- Preference styling -->
+        <item name="preferenceStyle">@style/SyncVision.Preference</item>
+        <item name="preferenceCategoryStyle">@style/SyncVision.PreferenceCategory</item>
+
+        <!-- Button styling -->
+        <item name="buttonStyle">@style/SyncVision.Button</item>
+        <item name="borderlessButtonStyle">@style/SyncVision.Button.Borderless</item>
+
+        <!-- Switch styling -->
+        <item name="switchStyle">@style/SyncVision.Switch</item>
+
+        <!-- EditText styling -->
+        <item name="editTextStyle">@style/SyncVision.EditText</item>
+
+        <!-- Ripple / feedback -->
+        <item name="colorControlHighlight">@color/sync_green_translucent_20</item>
+        <item name="colorControlActivated">@color/sync_green</item>
+    </style>
+
+    <!-- Dialog theme -->
+    <style name="Theme.SyncVision.Dialog" parent="ThemeOverlay.Material3.Dialog.Alert">
+        <item name="android:background">@color/dark_surface</item>
+        <item name="android:textColorPrimary">@color/white</item>
+        <item name="android:textColorSecondary">@color/sync_green</item>
+        <item name="buttonBarPositiveButtonStyle">@style/SyncVision.Button</item>
+        <item name="buttonBarNegativeButtonStyle">@style/SyncVision.Button.Borderless</item>
+        <item name="colorPrimary">@color/sync_green</item>
+    </style>
+
+    <!-- Preference style -->
+    <style name="SyncVision.Preference" parent="Preference.Material">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textColorSecondary">@color/sync_green_dim</item>
+        <item name="iconSpaceReserved">false</item>
+    </style>
+
+    <!-- Preference category style -->
+    <style name="SyncVision.PreferenceCategory" parent="Preference.Category.Material">
+        <item name="android:textColor">@color/sync_green</item>
+        <item name="iconSpaceReserved">false</item>
+    </style>
+
+    <!-- Button style (terminal green) -->
+    <style name="SyncVision.Button" parent="Widget.Material3.Button">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:fontFamily">monospace</item>
+        <item name="backgroundTint">@color/sync_green</item>
+        <item name="cornerRadius">2dp</item>
+    </style>
+
+    <!-- Borderless button -->
+    <style name="SyncVision.Button.Borderless" parent="Widget.Material3.Button.TextButton">
+        <item name="android:textColor">@color/sync_green</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:fontFamily">monospace</item>
+    </style>
+
+    <!-- Switch style -->
+    <style name="SyncVision.Switch" parent="Widget.Material3.CompoundButton.Switch">
+        <item name="android:textColor">@color/white</item>
+        <item name="thumbTint">@color/sync_green</item>
+        <item name="trackTint">@color/sync_green_dim</item>
+    </style>
+
+    <!-- EditText style -->
+    <style name="SyncVision.EditText" parent="Widget.Material3.EditText">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textColorHint">@color/sync_green_dim</item>
+        <item name="android:fontFamily">monospace</item>
+    </style>
+
+    <!-- Splash / launch theme (solid black until GL context ready) -->
+    <style name="Theme.SyncVision.Splash" parent="Theme.SyncVision">
+        <item name="android:windowBackground">@color/black</item>
+        <item name="android:windowDisablePreview">false</item>
+    </style>
+
+    <!-- Settings activity theme -->
+    <style name="Theme.SyncVision.Settings" parent="Theme.SyncVision">
+        <item name="android:windowFullscreen">false</item>
+        <item name="android:statusBarColor">@color/dark_surface</item>
+    </style>
+</resources>

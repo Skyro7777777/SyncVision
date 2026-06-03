@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Settings preferences XML for the Sync Vision app.
+    Provides a standard AndroidX PreferenceScreen layout.
+    If this XML fails to load, SettingsActivity builds preferences
+    programmatically as a fallback.
+-->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!-- Performance Category -->
+    <PreferenceCategory android:title="PERFORMANCE">
+        <SwitchPreferenceCompat
+            android:key="gpu_acceleration"
+            android:title="GPU ACCELERATION"
+            android:summary="USE GPU DELEGATE FOR TFLITE INFERENCE"
+            android:defaultValue="true" />
+
+        <SwitchPreferenceCompat
+            android:key="nnapi"
+            android:title="NNAPI"
+            android:summary="USE ANDROID NNAPI DELEGATE (MAY IMPROVE PERFORMANCE)"
+            android:defaultValue="false" />
+
+        <SeekBarPreference
+            android:key="confidence_threshold"
+            android:title="DETECTION CONFIDENCE"
+            android:summary="MINIMUM CONFIDENCE FOR OBJECT DETECTION"
+            android:min="30"
+            android:max="90"
+            android:defaultValue="50"
+            app:showSeekBarValue="true" />
+    </PreferenceCategory>
+
+    <!-- Display Category -->
+    <PreferenceCategory android:title="DISPLAY">
+        <SeekBarPreference
+            android:key="scanline_intensity"
+            android:title="SCANLINE INTENSITY"
+            android:summary="CRT SCANLINE EFFECT INTENSITY (0 = OFF)"
+            android:min="0"
+            android:max="100"
+            android:defaultValue="30"
+            app:showSeekBarValue="true" />
+
+        <DropDownPreference
+            android:key="night_mode"
+            android:title="NIGHT MODE"
+            android:summary="AUTOMATIC OR MANUAL NIGHT MODE"
+            android:entries="@array/night_mode_entries"
+            android:entryValues="@array/night_mode_values"
+            android:defaultValue="auto" />
+
+        <SwitchPreferenceCompat
+            android:key="show_sync_diagram"
+            android:title="SHOW SYNC DIAGRAM"
+            android:summary="DISPLAY THE RELATIONSHIP GRAPH OVERLAY"
+            android:defaultValue="true" />
+
+        <SwitchPreferenceCompat
+            android:key="show_depth_labels"
+            android:title="SHOW DEPTH LABELS"
+            android:summary="DISPLAY DISTANCE ESTIMATES ON OBJECTS"
+            android:defaultValue="false" />
+    </PreferenceCategory>
+
+    <!-- Alerts Category -->
+    <PreferenceCategory android:title="ALERTS">
+        <SwitchPreferenceCompat
+            android:key="audio_alerts"
+            android:title="AUDIO ALERTS"
+            android:summary="PLAY SOUND FOR HAZARD WARNINGS"
+            android:defaultValue="true" />
+
+        <SwitchPreferenceCompat
+            android:key="vibration_alerts"
+            android:title="VIBRATION ALERTS"
+            android:summary="VIBRATE DEVICE FOR HAZARD WARNINGS"
+            android:defaultValue="true" />
+    </PreferenceCategory>
+
+    <!-- Camera Category -->
+    <PreferenceCategory android:title="CAMERA">
+        <DropDownPreference
+            android:key="camera_resolution"
+            android:title="CAMERA RESOLUTION"
+            android:summary="SELECT CAMERA PREVIEW RESOLUTION"
+            android:entries="@array/resolution_entries"
+            android:entryValues="@array/resolution_values"
+            android:defaultValue="1280x720" />
+    </PreferenceCategory>
+
+    <!-- Language Category -->
+    <PreferenceCategory android:title="LANGUAGE">
+        <DropDownPreference
+            android:key="language"
+            android:title="TRANSLATION LANGUAGE"
+            android:summary="LANGUAGE FOR OCR TRANSLATION OUTPUT"
+            android:entries="@array/language_entries"
+            android:entryValues="@array/language_values"
+            android:defaultValue="en" />
+    </PreferenceCategory>
+
+    <!-- About Category -->
+    <PreferenceCategory android:title="ABOUT">
+        <Preference
+            android:key="about"
+            android:title="SYNC VISION"
+            android:summary="VERSION 1.0.0 — ON-DEVICE ML CAMERA APP\nNO INTERNET PERMISSION. ALL DATA STAYS ON YOUR DEVICE."
+            android:selectable="false" />
+
+        <Preference
+            android:key="privacy"
+            android:title="PRIVACY STATEMENT"
+            android:summary="SYNC VISION COLLECTS NO DATA. NO INTERNET PERMISSION. ALL ML PROCESSING HAPPENS ON-DEVICE. NO FACIAL RECOGNITION. NO CLOUD SERVICES."
+            android:selectable="false" />
+    </PreferenceCategory>
+
+</PreferenceScreen>

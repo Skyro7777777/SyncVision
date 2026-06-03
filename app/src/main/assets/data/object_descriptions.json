@@ -1,0 +1,642 @@
+[
+  {
+    "className": "person",
+    "displayName": "PERSON",
+    "shortDescription": "HUMAN INDIVIDUAL DETECTED IN SCENE\nIDENTIFIED BY BODY SHAPE AND MOVEMENT\nNO THREAT ASSESSMENT — CONTEXT REQUIRED",
+    "commonUses": "SOCIAL INTERACTION, SCENE AWARENESS, CROWD MONITORING",
+    "hazardLevel": 0,
+    "category": "PERSON"
+  },
+  {
+    "className": "bicycle",
+    "displayName": "BICYCLE",
+    "shortDescription": "TWO-WHEELED HUMAN-POWERED VEHICLE\nCAN APPEAR SUDDENLY IN TRAFFIC\nMODERATE COLLISION RISK AT INTERSECTIONS",
+    "commonUses": "TRANSPORTATION, RECREATION, EXERCISE, COMMUTING",
+    "hazardLevel": 2,
+    "category": "VEHICLE"
+  },
+  {
+    "className": "car",
+    "displayName": "CAR",
+    "shortDescription": "MOTOR VEHICLE WITH FOUR WHEELS\nUSED FOR TRANSPORTATION ON ROADS\nHAZARD: MOVING VEHICLE — STAY ALERT",
+    "commonUses": "TRANSPORTATION, COMMUTING, CARGO DELIVERY",
+    "hazardLevel": 3,
+    "category": "VEHICLE"
+  },
+  {
+    "className": "motorcycle",
+    "displayName": "MOTORCYCLE",
+    "shortDescription": "TWO-WHEELED MOTOR VEHICLE — FAST AND AGILE\nOFTEN HARD TO SEE IN BLIND SPOTS\nHIGH COLLISION RISK — GIVE WIDE BERTH",
+    "commonUses": "TRANSPORTATION, RECREATION, RACING, DELIVERY",
+    "hazardLevel": 3,
+    "category": "VEHICLE"
+  },
+  {
+    "className": "airplane",
+    "displayName": "AIRPLANE",
+    "shortDescription": "FIXED-WING AIRCRAFT — EXTREMELY LARGE AND FAST\nDANGEROUS PROPELLER AND JET BLAST ZONES\nSTAY CLEAR OF RUNWAYS AND TAXIWAYS",
+    "commonUses": "AIR TRAVEL, CARGO TRANSPORT, MILITARY OPERATIONS",
+    "hazardLevel": 3,
+    "category": "VEHICLE"
+  },
+  {
+    "className": "bus",
+    "displayName": "BUS",
+    "shortDescription": "LARGE PASSENGER VEHICLE — LIMITED VISIBILITY\nWIDE TURNS AND FREQUENT STOPS\nSTAY CLEAR OF DOOR ZONES AND REAR BLIND SPOTS",
+    "commonUses": "PUBLIC TRANSIT, SCHOOL TRANSPORT, CHARTER SERVICE",
+    "hazardLevel": 3,
+    "category": "VEHICLE"
+  },
+  {
+    "className": "train",
+    "displayName": "TRAIN",
+    "shortDescription": "RAILED VEHICLE — CANNOT STOP QUICKLY\nEXTREMELY DANGEROUS AT CROSSINGS\nNEVER TRESPASS ON TRACKS OR RAIL YARDS",
+    "commonUses": "PASSENGER TRANSIT, FREIGHT TRANSPORT, COMMUTING",
+    "hazardLevel": 3,
+    "category": "VEHICLE"
+  },
+  {
+    "className": "truck",
+    "displayName": "TRUCK",
+    "shortDescription": "LARGE CARGO VEHICLE — MASSIVE BLIND SPOTS\nWIDE TURNS AND LONG STOPPING DISTANCE\nDANGER: STAY VISIBLE AND KEEP DISTANCE",
+    "commonUses": "FREIGHT DELIVERY, CONSTRUCTION, MOVING, LOGISTICS",
+    "hazardLevel": 3,
+    "category": "VEHICLE"
+  },
+  {
+    "className": "boat",
+    "displayName": "BOAT",
+    "shortDescription": "WATERCRAFT FOR RIVER, LAKE, OR OCEAN TRAVEL\nSLIPPERY DECKS AND DROWNING HAZARD\nLIFE JACKETS REQUIRED NEAR WATERCRAFT",
+    "commonUses": "TRANSPORTATION, FISHING, RECREATION, PATROL",
+    "hazardLevel": 3,
+    "category": "VEHICLE"
+  },
+  {
+    "className": "traffic_light",
+    "displayName": "TRAFFIC LIGHT",
+    "shortDescription": "SIGNALIZED INTERSECTION CONTROL DEVICE\nOBSERVE SIGNAL STATE FOR SAFE CROSSING\nRED LIGHT VIOLATIONS ARE A MAJOR HAZARD",
+    "commonUses": "TRAFFIC MANAGEMENT, INTERSECTION CONTROL, PEDESTRIAN SAFETY",
+    "hazardLevel": 2,
+    "category": "OUTDOOR"
+  },
+  {
+    "className": "fire_hydrant",
+    "displayName": "FIRE HYDRANT",
+    "shortDescription": "EMERGENCY WATER ACCESS POINT FOR FIREFIGHTING\nNEVER BLOCK OR PARK IN FRONT OF HYDRANT\nPENALTY FOR OBSTRUCTING EMERGENCY ACCESS",
+    "commonUses": "FIRE SUPPRESSION, EMERGENCY WATER SUPPLY, STREET MARKER",
+    "hazardLevel": 2,
+    "category": "OUTDOOR"
+  },
+  {
+    "className": "stop_sign",
+    "displayName": "STOP SIGN",
+    "shortDescription": "MANDATORY STOP TRAFFIC CONTROL AT INTERSECTIONS\nVEHICLES MUST COME TO FULL STOP\nFAILURE TO STOP IS A SERIOUS VIOLATION",
+    "commonUses": "TRAFFIC CONTROL, INTERSECTION SAFETY, RIGHT-OF-WAY MANAGEMENT",
+    "hazardLevel": 2,
+    "category": "OUTDOOR"
+  },
+  {
+    "className": "parking_meter",
+    "displayName": "PARKING METER",
+    "shortDescription": "STREET-SIDE PAYMENT DEVICE FOR PARKED VEHICLES\nINDICATES REGULATED PARKING ZONE\nEXPIRED METERS MAY RESULT IN FINES",
+    "commonUses": "PARKING REGULATION, REVENUE COLLECTION, TIME LIMIT ENFORCEMENT",
+    "hazardLevel": 0,
+    "category": "OUTDOOR"
+  },
+  {
+    "className": "bench",
+    "displayName": "BENCH",
+    "shortDescription": "OUTDOOR SEATING FOR REST AND RECREATION\nLOW OBSTACLE — MAY CAUSE TRIP IF UNSEEN\nCOMMON IN PARKS, BUS STOPS, AND WALKWAYS",
+    "commonUses": "REST AREA, PUBLIC SEATING, BUS STOP, PARK FURNITURE",
+    "hazardLevel": 1,
+    "category": "FURNITURE"
+  },
+  {
+    "className": "bird",
+    "displayName": "BIRD",
+    "shortDescription": "AVIAN CREATURE — FLIGHT CAPABLE\nGENERALLY HARMLESS TO HUMANS\nMAY INDICATE OUTDOOR OR NATURAL ENVIRONMENT",
+    "commonUses": "WILDLIFE OBSERVATION, ECOSYSTEM INDICATOR, PEST CONTROL",
+    "hazardLevel": 0,
+    "category": "ANIMAL"
+  },
+  {
+    "className": "cat",
+    "displayName": "CAT",
+    "shortDescription": "DOMESTIC FELINE — AGILE AND INDEPENDENT\nGENERALLY HARMLESS BUT MAY SCRATCH IF PROVOKED\nCOMMON HOUSEHOLD PET AND URBAN STRAY",
+    "commonUses": "COMPANIONSHIP, PEST CONTROL, THERAPY ANIMAL",
+    "hazardLevel": 0,
+    "category": "ANIMAL"
+  },
+  {
+    "className": "dog",
+    "displayName": "DOG",
+    "shortDescription": "DOMESTIC CANINE — VARIES WILDLY IN SIZE AND TEMPER\nSOME BREEDS CAN BE AGGRESSIVE OR PROTECTIVE\nALWAYS ASK OWNER BEFORE APPROACHING",
+    "commonUses": "COMPANIONSHIP, GUARD DUTY, SERVICE WORK, HUNTING",
+    "hazardLevel": 2,
+    "category": "ANIMAL"
+  },
+  {
+    "className": "horse",
+    "displayName": "HORSE",
+    "shortDescription": "LARGE DOMESTICATED UNGULATE — POWERFUL KICK\nCAN BE UNPREDICTABLE IF STARTLED\nSTAY BEHIND THE ANIMAL AND MOVE CALMLY",
+    "commonUses": "RIDING, AGRICULTURE, THERAPY, COMPETITION, POLICE WORK",
+    "hazardLevel": 2,
+    "category": "ANIMAL"
+  },
+  {
+    "className": "sheep",
+    "displayName": "SHEEP",
+    "shortDescription": "DOMESTIC GRAZING ANIMAL — FLOCK BEHAVIOR\nDOCILE BUT MAY CHARGE WHEN THREATENED\nCOMMON IN RURAL AND AGRICULTURAL SETTINGS",
+    "commonUses": "WOOL PRODUCTION, MEAT, GRAZING, AGRICULTURE",
+    "hazardLevel": 0,
+    "category": "ANIMAL"
+  },
+  {
+    "className": "cow",
+    "displayName": "COW",
+    "shortDescription": "LARGE DOMESTIC BOVINE — EXTREMELY HEAVY\nCAN KICK OR CHARGE IF FEELING THREATENED\nGIVE LIVESTOCK WIDE BERTH IN FIELDS",
+    "commonUses": "DAIRY PRODUCTION, MEAT, AGRICULTURE, GRAZING",
+    "hazardLevel": 2,
+    "category": "ANIMAL"
+  },
+  {
+    "className": "elephant",
+    "displayName": "ELEPHANT",
+    "shortDescription": "MASSIVE PACHYDERM — LARGEST LAND ANIMAL\nCAPABLE OF CHARGING AT HIGH SPEED\nEXTREMELY DANGEROUS IF AGITATED — KEEP DISTANCE",
+    "commonUses": "WILDLIFE OBSERVATION, WORK ANIMAL (REGIONS), TOURISM",
+    "hazardLevel": 2,
+    "category": "ANIMAL"
+  },
+  {
+    "className": "bear",
+    "displayName": "BEAR",
+    "shortDescription": "POWERFUL PREDATOR — EXTREMELY DANGEROUS\nCAN RUN FASTER THAN HUMANS AND CLIMB TREES\nBACK AWAY SLOWLY — NEVER RUN FROM A BEAR",
+    "commonUses": "WILDLIFE OBSERVATION, NONE — DO NOT APPROACH",
+    "hazardLevel": 3,
+    "category": "ANIMAL"
+  },
+  {
+    "className": "zebra",
+    "displayName": "ZEBRA",
+    "shortDescription": "STRIPED EQUINE OF THE AFRICAN PLAINS\nWILD AND UNPREDICTABLE — CANNOT BE DOMESTICATED\nKICKS ARE POWERFUL ENOUGH TO KILL",
+    "commonUses": "WILDLIFE OBSERVATION, SAFARI TOURISM, ECOSYSTEM INDICATOR",
+    "hazardLevel": 0,
+    "category": "ANIMAL"
+  },
+  {
+    "className": "giraffe",
+    "displayName": "GIRAFFE",
+    "shortDescription": "TALLEST LIVING ANIMAL — LONG NECK AND LEGS\nKICKS FROM FRONT HOOVES CAN BE LETHAL\nGENERALLY DOCILE — OBSERVE FROM A DISTANCE",
+    "commonUses": "WILDLIFE OBSERVATION, SAFARI TOURISM, ZOO EXHIBIT",
+    "hazardLevel": 0,
+    "category": "ANIMAL"
+  },
+  {
+    "className": "backpack",
+    "displayName": "BACKPACK",
+    "shortDescription": "PORTABLE BAG WORN ON THE BACK\nMAY CONTAIN VALUABLES OR UNKNOWN ITEMS\nLOW OBSTACLE — WATCH FOR TRIPPING IN CROWDS",
+    "commonUses": "CARRYING SUPPLIES, SCHOOL, HIKING, TRAVEL",
+    "hazardLevel": 1,
+    "category": "ACCESSORY"
+  },
+  {
+    "className": "umbrella",
+    "displayName": "UMBRELLA",
+    "shortDescription": "FOLDABLE CANOPY FOR RAIN OR SUN PROTECTION\nMETAL RIBS CAN POKE NEARBY PEDESTRIANS\nMAY REDUCE VISIBILITY FOR THE CARRIER",
+    "commonUses": "RAIN PROTECTION, SUN SHADE, BEACH SHELTER",
+    "hazardLevel": 1,
+    "category": "ACCESSORY"
+  },
+  {
+    "className": "handbag",
+    "displayName": "HANDBAG",
+    "shortDescription": "SMALL PERSONAL CARRYING BAG FOR DAILY ITEMS\nOFTEN LEFT ON SEATS OR FLOORS — TRIP HAZARD\nMAY CONTAIN VALUABLES — PICKPOCKET RISK",
+    "commonUses": "PERSONAL STORAGE, FASHION ACCESSORY, DAILY ESSENTIALS",
+    "hazardLevel": 1,
+    "category": "ACCESSORY"
+  },
+  {
+    "className": "tie",
+    "displayName": "TIE",
+    "shortDescription": "NECKWEAR WORN WITH FORMAL ATTIRE\nENTANGLEMENT HAZARD NEAR MACHINERY\nCOMMON IN PROFESSIONAL AND FORMAL SETTINGS",
+    "commonUses": "FORMAL DRESS, PROFESSIONAL ATTIRE, UNIFORMS",
+    "hazardLevel": 0,
+    "category": "ACCESSORY"
+  },
+  {
+    "className": "suitcase",
+    "displayName": "SUITCASE",
+    "shortDescription": "RIGID TRAVEL BAG ON WHEELS — BULKY OBJECT\nROLLING SUITCASES CAN TRIP PEDESTRIANS\nUNATTENDED BAGS MAY INDICATE SECURITY RISK",
+    "commonUses": "TRAVEL, LUGGAGE, TRANSPORTATION OF BELONGINGS",
+    "hazardLevel": 1,
+    "category": "ACCESSORY"
+  },
+  {
+    "className": "frisbee",
+    "displayName": "FRISBEE",
+    "shortDescription": "FLYING DISC FOR RECREATIONAL THROWING\nLIGHTWEIGHT AND HARMLESS IN FLIGHT\nINDICATES OUTDOOR RECREATIONAL ACTIVITY",
+    "commonUses": "RECREATION, DOG TOYS, ULTIMATE FRISBEE SPORT",
+    "hazardLevel": 0,
+    "category": "SPORT"
+  },
+  {
+    "className": "skis",
+    "displayName": "SKIS",
+    "shortDescription": "LONG NARROW RUNNERS FOR SNOW TRAVEL\nSHARP EDGES CAN CAUSE LACERATIONS\nINDICATES WINTER SPORT ENVIRONMENT",
+    "commonUses": "DOWNHILL SKIING, CROSS-COUNTRY SKIING, WINTER SPORTS",
+    "hazardLevel": 0,
+    "category": "SPORT"
+  },
+  {
+    "className": "snowboard",
+    "displayName": "SNOWBOARD",
+    "shortDescription": "SINGLE-BOARD SNOW SLIDING DEVICE\nFAST DESCENT SPEED ON SNOWY SLOPES\nINDICATES WINTER SPORT AND MOUNTAIN ENVIRONMENT",
+    "commonUses": "WINTER SPORTS, RECREATION, SNOWBOARDING COMPETITION",
+    "hazardLevel": 0,
+    "category": "SPORT"
+  },
+  {
+    "className": "sports_ball",
+    "displayName": "SPORTS BALL",
+    "shortDescription": "SPHERICAL EQUIPMENT USED IN VARIOUS SPORTS\nMAY BE THROWN OR KICKED AT HIGH SPEED\nINDICATES ACTIVE SPORTING AREA — STAY ALERT",
+    "commonUses": "SOCCER, BASKETBALL, TENNIS, VARIOUS SPORTS",
+    "hazardLevel": 2,
+    "category": "SPORT"
+  },
+  {
+    "className": "kite",
+    "displayName": "KITE",
+    "shortDescription": "TETHERED FLYING OBJECT RIDDEN BY WIND\nSTRINGS CAN BE A STRANGULATION HAZARD\nINDICATES OUTDOOR RECREATIONAL ACTIVITY",
+    "commonUses": "RECREATION, KITE FLYING, KITE SURFING, FESTIVALS",
+    "hazardLevel": 0,
+    "category": "SPORT"
+  },
+  {
+    "className": "baseball_bat",
+    "displayName": "BASEBALL BAT",
+    "shortDescription": "SOLID CLUB USED IN BASEBALL — HEAVY IMPACT\nCAN CAUSE SERIOUS BLUNT FORCE INJURY\nPOTENTIALLY DANGEROUS IF WIELDED AS A WEAPON",
+    "commonUses": "BASEBALL, SOFTBALL, SPORT TRAINING, SELF-DEFENSE",
+    "hazardLevel": 2,
+    "category": "SPORT"
+  },
+  {
+    "className": "baseball_glove",
+    "displayName": "BASEBALL GLOVE",
+    "shortDescription": "LEATHER MITT FOR CATCHING BASEBALLS\nPADDED PROTECTIVE EQUIPMENT FOR ONE HAND\nINDICATES BASEBALL OR SOFTBALL ACTIVITY NEARBY",
+    "commonUses": "BASEBALL, SOFTBALL, CATCHING PRACTICE, SPORT EQUIPMENT",
+    "hazardLevel": 0,
+    "category": "SPORT"
+  },
+  {
+    "className": "skateboard",
+    "displayName": "SKATEBOARD",
+    "shortDescription": "WHEELED BOARD FOR ROLLING AND TRICKS\nRIDER MAY LOSE CONTROL AT SPEED\nPEDESTRIAN COLLISION RISK IN SHARED SPACES",
+    "commonUses": "RECREATION, TRANSPORTATION, SKATEBOARDING SPORTS, TRICKS",
+    "hazardLevel": 2,
+    "category": "SPORT"
+  },
+  {
+    "className": "surfboard",
+    "displayName": "SURFBOARD",
+    "shortDescription": "BUOYANT BOARD FOR RIDING OCEAN WAVES\nLONG AND HEAVY — CAN INJURE IF STRUCK\nINDICATES BEACH AND OCEAN ENVIRONMENT",
+    "commonUses": "SURFING, PADDLEBOARDING, OCEAN RECREATION",
+    "hazardLevel": 0,
+    "category": "SPORT"
+  },
+  {
+    "className": "tennis_racket",
+    "displayName": "TENNIS RACKET",
+    "shortDescription": "STRINGED FRAME FOR STRIKING TENNIS BALLS\nSWINGING RACKET CAN CAUSE IMPACT INJURY\nINDICATES TENNIS COURT OR SPORTING AREA",
+    "commonUses": "TENNIS, RACQUETBALL, BADMINTON, SPORT TRAINING",
+    "hazardLevel": 0,
+    "category": "SPORT"
+  },
+  {
+    "className": "bottle",
+    "displayName": "BOTTLE",
+    "shortDescription": "CYLINDRICAL CONTAINER FOR LIQUIDS\nGLASS BOTTLES CAN SHATTER — CUT HAZARD\nSPILLED CONTENTS MAY CREATE SLIP HAZARD",
+    "commonUses": "BEVERAGE STORAGE, WATER, CONTAINERS, RECYCLING",
+    "hazardLevel": 1,
+    "category": "KITCHEN"
+  },
+  {
+    "className": "wine_glass",
+    "displayName": "WINE GLASS",
+    "shortDescription": "STEMMED GLASS FOR SERVING WINE\nFRAGILE — EASILY SHATTERED INTO SHARP SHARDS\nBROKEN GLASS IS A SERIOUS LACERATION HAZARD",
+    "commonUses": "DINING, WINE SERVICE, FORMAL EVENTS, DECORATION",
+    "hazardLevel": 1,
+    "category": "KITCHEN"
+  },
+  {
+    "className": "cup",
+    "displayName": "CUP",
+    "shortDescription": "OPEN-TOPPED DRINKING VESSEL\nHOT CONTENTS MAY CAUSE BURNS IF SPILLED\nCOMMON ON DESKS AND TABLES — KNOCKOVER RISK",
+    "commonUses": "BEVERAGES, COFFEE, TEA, DRINKING",
+    "hazardLevel": 1,
+    "category": "KITCHEN"
+  },
+  {
+    "className": "fork",
+    "displayName": "FORK",
+    "shortDescription": "PRONGED UTENSIL FOR EATING AND SERVING\nSHARP TINES CAN PUNCTURE SKIN\nKEEP AWAY FROM CHILDREN AND STORE SAFELY",
+    "commonUses": "EATING, COOKING, SERVING FOOD, DINING",
+    "hazardLevel": 0,
+    "category": "KITCHEN"
+  },
+  {
+    "className": "knife",
+    "displayName": "KNIFE",
+    "shortDescription": "SHARP BLADED CUTTING TOOL — EXTREME CAUTION\nCAN CAUSE SEVERE LACERATIONS INSTANTLY\nHANDLE WITH CARE — KEEP AWAY FROM CHILDREN",
+    "commonUses": "FOOD PREPARATION, CUTTING, CRAFTS, UTILITY",
+    "hazardLevel": 3,
+    "category": "KITCHEN"
+  },
+  {
+    "className": "spoon",
+    "displayName": "SPOON",
+    "shortDescription": "BOWL-SHAPED UTENSIL FOR EATING AND STIRRING\nSAFE FOR ALL AGES — MINIMAL RISK\nESSENTIAL KITCHEN AND DINING TOOL",
+    "commonUses": "EATING, COOKING, STIRRING, MEASURING",
+    "hazardLevel": 0,
+    "category": "KITCHEN"
+  },
+  {
+    "className": "bowl",
+    "displayName": "BOWL",
+    "shortDescription": "ROUND OPEN CONTAINER FOR FOOD AND LIQUIDS\nSTABLE AND GENERALLY HARMLESS\nCOMMON IN KITCHEN AND DINING SETTINGS",
+    "commonUses": "SERVING FOOD, SOUP, CEREAL, MIXING INGREDIENTS",
+    "hazardLevel": 0,
+    "category": "KITCHEN"
+  },
+  {
+    "className": "banana",
+    "displayName": "BANANA",
+    "shortDescription": "CURVED YELLOW TROPICAL FRUIT — SWEET AND NUTRITIOUS\nPEEL IS A CLASSIC SLIP HAZARD ON FLOORS\nRICH IN POTASSIUM AND QUICK ENERGY",
+    "commonUses": "SNACK, SMOOTHIES, BAKING, NUTRITION",
+    "hazardLevel": 0,
+    "category": "FOOD"
+  },
+  {
+    "className": "apple",
+    "displayName": "APPLE",
+    "shortDescription": "ROUND CRISP FRUIT — RED, GREEN, OR YELLOW\nNUTRITIOUS AND WIDELY AVAILABLE\nCHOKING HAZARD IF NOT CHEWED PROPERLY",
+    "commonUses": "SNACK, COOKING, JUICE, BAKING",
+    "hazardLevel": 0,
+    "category": "FOOD"
+  },
+  {
+    "className": "sandwich",
+    "displayName": "SANDWICH",
+    "shortDescription": "FILLING BETWEEN TWO SLICES OF BREAD\nPORTABLE MEAL — CONVENIENT AND VERSATILE\nCOMMON LUNCH AND PICNIC FOOD ITEM",
+    "commonUses": "MEAL, LUNCH, PICNIC, QUICK FOOD",
+    "hazardLevel": 0,
+    "category": "FOOD"
+  },
+  {
+    "className": "orange",
+    "displayName": "ORANGE",
+    "shortDescription": "ROUND CITRUS FRUIT — JUICY AND TANGY\nRICH IN VITAMIN C — IMMUNE BOOSTER\nPEEL OIL CAN IRRITATE EYES AND SKIN",
+    "commonUses": "SNACK, JUICE, COOKING, VITAMIN C SOURCE",
+    "hazardLevel": 0,
+    "category": "FOOD"
+  },
+  {
+    "className": "broccoli",
+    "displayName": "BROCCOLI",
+    "shortDescription": "GREEN CRUCIFEROUS VEGETABLE — NUTRIENT DENSE\nHIGH IN VITAMINS K AND C\nSUPERFOOD — OFTEN SERVED STEAMED OR RAW",
+    "commonUses": "COOKING, STEAMING, STIR-FRY, NUTRITION",
+    "hazardLevel": 0,
+    "category": "FOOD"
+  },
+  {
+    "className": "carrot",
+    "displayName": "CARROT",
+    "shortDescription": "ORANGE ROOT VEGETABLE — CRUNCHY AND SWEET\nHIGH IN BETA-CAROTENE AND VITAMIN A\nCHOKING HAZARD FOR SMALL CHILDREN IF WHOLE",
+    "commonUses": "SNACK, COOKING, SALADS, JUICE",
+    "hazardLevel": 0,
+    "category": "FOOD"
+  },
+  {
+    "className": "hot_dog",
+    "displayName": "HOT DOG",
+    "shortDescription": "COOKED SAUSAGE IN A BUN — CLASSIC STREET FOOD\nTOP CHOKING HAZARD FOR YOUNG CHILDREN\nSERVE SLICED LENGTHWISE FOR KIDS UNDER 4",
+    "commonUses": "MEAL, STREET FOOD, BARBECUE, STADIUM FOOD",
+    "hazardLevel": 0,
+    "category": "FOOD"
+  },
+  {
+    "className": "pizza",
+    "displayName": "PIZZA",
+    "shortDescription": "FLATBREAD WITH CHEESE AND TOPPINGS\nEXTREMELY HOT CHEESE CAN CAUSE MOUTH BURNS\nUNIVERSALLY POPULAR COMFORT FOOD",
+    "commonUses": "MEAL, PARTY FOOD, DELIVERY, SNACK",
+    "hazardLevel": 0,
+    "category": "FOOD"
+  },
+  {
+    "className": "donut",
+    "displayName": "DONUT",
+    "shortDescription": "SWEET FRIED RING-SHAPED PASTRY\nHIGH IN SUGAR AND CALORIES\nPOPULAR BREAKFAST AND DESSERT TREAT",
+    "commonUses": "SNACK, BREAKFAST, DESSERT, COFFEE PAIRING",
+    "hazardLevel": 0,
+    "category": "FOOD"
+  },
+  {
+    "className": "cake",
+    "displayName": "CAKE",
+    "shortDescription": "SWEET BAKED DESSERT — OFTEN DECORATED\nCANDLES PRESENT BURN HAZARD ON BIRTHDAY CAKES\nCELEBRATION AND DESSERT STAPLE",
+    "commonUses": "CELEBRATION, DESSERT, BIRTHDAYS, WEDDINGS",
+    "hazardLevel": 0,
+    "category": "FOOD"
+  },
+  {
+    "className": "chair",
+    "displayName": "CHAIR",
+    "shortDescription": "SEAT WITH BACK SUPPORT — COMMON FURNITURE\nTRIP HAZARD IF LEFT IN WALKWAYS\nDAMAGED CHAIRS MAY COLLAPSE UNDER WEIGHT",
+    "commonUses": "SEATING, DINING, OFFICE, RECREATION",
+    "hazardLevel": 1,
+    "category": "FURNITURE"
+  },
+  {
+    "className": "couch",
+    "displayName": "COUCH",
+    "shortDescription": "LARGE UPHOLSTERED SEATING FOR MULTIPLE PEOPLE\nHEAVY — DIFFICULT TO MOVE SAFELY\nTRIP HAZARD AROUND LOW PROFILE DESIGNS",
+    "commonUses": "LOUNGING, SEATING, LIVING ROOM, SOCIAL GATHERING",
+    "hazardLevel": 1,
+    "category": "FURNITURE"
+  },
+  {
+    "className": "potted_plant",
+    "displayName": "POTTED PLANT",
+    "shortDescription": "PLANT GROWING IN A CONTAINER — DECORATIVE\nSOIL MAY CONTAIN MOLD OR ALLERGENS\nHEAVY POTS CAN FALL — KEEP STABLE SURFACES",
+    "commonUses": "DECORATION, AIR PURIFICATION, GARDENING, AESTHETICS",
+    "hazardLevel": 0,
+    "category": "INDOOR"
+  },
+  {
+    "className": "bed",
+    "displayName": "BED",
+    "shortDescription": "FURNITURE FOR SLEEPING AND RESTING\nLOW PROFILE — TRIP HAZARD IN DARK ROOMS\nFRAME CORNERS CAN CAUSE BRUISES ON IMPACT",
+    "commonUses": "SLEEPING, RESTING, RECOVERY, HOSPITALITY",
+    "hazardLevel": 0,
+    "category": "FURNITURE"
+  },
+  {
+    "className": "dining_table",
+    "displayName": "DINING TABLE",
+    "shortDescription": "FLAT SURFACE FOR EATING AND GATHERING\nLARGE FOOTPRINT — OBSTACLE IN TIGHT SPACES\nSHARP EDGES ON CORNERS MAY CAUSE INJURY",
+    "commonUses": "DINING, WORK SURFACE, GATHERING, BOARD GAMES",
+    "hazardLevel": 0,
+    "category": "FURNITURE"
+  },
+  {
+    "className": "toilet",
+    "displayName": "TOILET",
+    "shortDescription": "SANITARY FIXTURE FOR WASTE DISPOSAL\nSLIPPERY FLOOR COMMONLY FOUND NEARBY\nESSENTIAL BATHROOM FIXTURE — HYGIENE CRITICAL",
+    "commonUses": "SANITATION, BATHROOM, HYGIENE, PLUMBING",
+    "hazardLevel": 0,
+    "category": "INDOOR"
+  },
+  {
+    "className": "tv",
+    "displayName": "TV",
+    "shortDescription": "TELEVISION DISPLAY SCREEN — ENTERTAINMENT DEVICE\nHEAVY — TIP-OVER HAZARD IF NOT SECURED\nMOUNT SECURELY TO PREVENT CRUSHING INJURY",
+    "commonUses": "ENTERTAINMENT, NEWS, GAMING, INFORMATION DISPLAY",
+    "hazardLevel": 0,
+    "category": "ELECTRONIC"
+  },
+  {
+    "className": "laptop",
+    "displayName": "LAPTOP",
+    "shortDescription": "PORTABLE PERSONAL COMPUTER — THIN AND LIGHT\nBATTERY CAN OVERHEAT WITH POOR VENTILATION\nSCREEN HINGES MAY PINCH FINGERS",
+    "commonUses": "COMPUTING, WORK, STUDY, ENTERTAINMENT, PROGRAMMING",
+    "hazardLevel": 0,
+    "category": "ELECTRONIC"
+  },
+  {
+    "className": "mouse",
+    "displayName": "MOUSE",
+    "shortDescription": "HAND-HELD POINTING DEVICE FOR COMPUTERS\nREPETITIVE USE CAN CAUSE WRIST STRAIN\nESSENTIAL COMPUTER INPUT PERIPHERAL",
+    "commonUses": "COMPUTING, GAMING, DESIGN, NAVIGATION",
+    "hazardLevel": 0,
+    "category": "ELECTRONIC"
+  },
+  {
+    "className": "remote",
+    "displayName": "REMOTE",
+    "shortDescription": "HAND-HELD WIRELESS CONTROLLER FOR DEVICES\nSMALL PARTS — CHOKING HAZARD FOR CHILDREN\nOFTEN LOST BETWEEN COUCH CUSHIONS",
+    "commonUses": "TV CONTROL, DEVICE OPERATION, SMART HOME, ENTERTAINMENT",
+    "hazardLevel": 0,
+    "category": "ELECTRONIC"
+  },
+  {
+    "className": "keyboard",
+    "displayName": "KEYBOARD",
+    "shortDescription": "TEXT INPUT DEVICE FOR COMPUTERS AND TERMINALS\nREPETITIVE TYPING CAN CAUSE CARPAL TUNNEL\nESSENTIAL TOOL FOR WORK AND COMMUNICATION",
+    "commonUses": "COMPUTING, TYPING, GAMING, PROGRAMMING, DATA ENTRY",
+    "hazardLevel": 0,
+    "category": "ELECTRONIC"
+  },
+  {
+    "className": "cell_phone",
+    "displayName": "CELL PHONE",
+    "shortDescription": "MOBILE COMMUNICATION AND COMPUTING DEVICE\nDISTRACTED WALKING IS A MAJOR SAFETY RISK\nBATTERY FIRE RISK IF DAMAGED OR COUNTERFEIT",
+    "commonUses": "COMMUNICATION, INTERNET, PHOTOGRAPHY, NAVIGATION",
+    "hazardLevel": 0,
+    "category": "ELECTRONIC"
+  },
+  {
+    "className": "microwave",
+    "displayName": "MICROWAVE",
+    "shortDescription": "ELECTRIC OVEN USING MICROWAVE RADIATION\nMETAL OBJECTS CAUSE DANGEROUS SPARKS INSIDE\nSUPERHEATED LIQUIDS CAN ERUPT VIOLENTLY",
+    "commonUses": "FOOD HEATING, COOKING, DEFROSTING, MEAL PREP",
+    "hazardLevel": 0,
+    "category": "KITCHEN"
+  },
+  {
+    "className": "oven",
+    "displayName": "OVEN",
+    "shortDescription": "ENCLOSED HEATING APPLIANCE FOR COOKING\nEXTERIOR SURFACES REACH DANGEROUS TEMPERATURES\nBURN RISK — KEEP CHILDREN AWAY WHEN IN USE",
+    "commonUses": "BAKING, ROASTING, BROILING, COOKING",
+    "hazardLevel": 0,
+    "category": "KITCHEN"
+  },
+  {
+    "className": "toaster",
+    "displayName": "TOASTER",
+    "shortDescription": "ELECTRIC APPLIANCE FOR BROWNING BREAD\nHEATING ELEMENTS REACH EXTREME TEMPERATURES\nNEVER INSERT UTENSILS — SHOCK AND BURN RISK",
+    "commonUses": "TOASTING BREAD, BAGELS, PASTRIES, BREAKFAST",
+    "hazardLevel": 0,
+    "category": "KITCHEN"
+  },
+  {
+    "className": "sink",
+    "displayName": "SINK",
+    "shortDescription": "BASIN FIXTURE FOR WASHING AND DRAINING\nHOT WATER CAN CAUSE SCALD BURNS\nSLIPPERY SURFACE WHEN WET — STABLE FOOTING NEEDED",
+    "commonUses": "WASHING, FOOD PREP, HYGIENE, CLEANING",
+    "hazardLevel": 0,
+    "category": "KITCHEN"
+  },
+  {
+    "className": "refrigerator",
+    "displayName": "REFRIGERATOR",
+    "shortDescription": "INSULATED COOLING APPLIANCE FOR FOOD STORAGE\nHEAVY — TIP-OVER RISK IF NOT LEVELED\nCHILDREN MAY BECOME TRAPPED INSIDE DISCARDED UNITS",
+    "commonUses": "FOOD PRESERVATION, COLD STORAGE, BEVERAGE COOLING",
+    "hazardLevel": 0,
+    "category": "KITCHEN"
+  },
+  {
+    "className": "book",
+    "displayName": "BOOK",
+    "shortDescription": "BOUND PAGES OF WRITTEN OR PRINTED CONTENT\nHEAVY STACKS CAN FALL FROM HIGH SHELVES\nPAPER CUTS ARE MINOR BUT PAINFUL",
+    "commonUses": "READING, EDUCATION, REFERENCE, ENTERTAINMENT",
+    "hazardLevel": 0,
+    "category": "INDOOR"
+  },
+  {
+    "className": "clock",
+    "displayName": "CLOCK",
+    "shortDescription": "TIMEKEEPING DEVICE — ANALOG OR DIGITAL\nWALL CLOCKS MAY FALL IF NOT PROPERLY MOUNTED\nESSENTIAL FOR SCHEDULING AND TIME MANAGEMENT",
+    "commonUses": "TIMEKEEPING, SCHEDULING, DECORATION, ALARMS",
+    "hazardLevel": 0,
+    "category": "INDOOR"
+  },
+  {
+    "className": "vase",
+    "displayName": "VASE",
+    "shortDescription": "DECORATIVE CONTAINER FOR FLOWERS AND PLANTS\nFRAGILE — GLASS OR CERAMIC SHATTER HAZARD\nBROKEN PIECES ARE EXTREMELY SHARP",
+    "commonUses": "FLOWER DISPLAY, DECORATION, HOME ACCENT, GIFTS",
+    "hazardLevel": 0,
+    "category": "INDOOR"
+  },
+  {
+    "className": "scissors",
+    "displayName": "SCISSORS",
+    "shortDescription": "SHARP BLADED CUTTING TOOL — DUAL BLADES\nCAN CAUSE SERIOUS LACERATIONS AND PUNCTURES\nALWAYS CUT AWAY FROM BODY — KEEP FROM CHILDREN",
+    "commonUses": "CUTTING PAPER, CRAFTS, SEWING, FIRST AID",
+    "hazardLevel": 3,
+    "category": "KITCHEN"
+  },
+  {
+    "className": "teddy_bear",
+    "displayName": "TEDDY BEAR",
+    "shortDescription": "SOFT PLUSH TOY IN THE SHAPE OF A BEAR\nCOMFORT OBJECT FOR CHILDREN AND COLLECTORS\nSMALL PARTS (EYES, NOSE) ARE CHOKING HAZARDS",
+    "commonUses": "COMFORT, PLAY, COLLECTING, GIFT, DECORATION",
+    "hazardLevel": 0,
+    "category": "PERSONAL"
+  },
+  {
+    "className": "hair_drier",
+    "displayName": "HAIR DRIER",
+    "shortDescription": "ELECTRIC DEVICE FOR BLOWING HOT AIR ON HAIR\nHEATING ELEMENTS CAN CAUSE BURNS\nDO NOT USE NEAR WATER — ELECTROCUTION RISK",
+    "commonUses": "HAIR STYLING, DRYING, PET GROOMING, CRAFTS",
+    "hazardLevel": 0,
+    "category": "PERSONAL"
+  },
+  {
+    "className": "toothbrush",
+    "displayName": "TOOTHBRUSH",
+    "shortDescription": "BRISTLED CLEANING TOOL FOR ORAL HYGIENE\nELECTRIC MODELS HAVE SMALL CHOKING PARTS\nESSENTIAL DAILY PERSONAL CARE ITEM",
+    "commonUses": "TEETH CLEANING, ORAL HYGIENE, DENTAL CARE",
+    "hazardLevel": 0,
+    "category": "PERSONAL"
+  }
+]

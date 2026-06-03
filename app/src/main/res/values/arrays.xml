@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Night mode options -->
+    <string-array name="night_mode_entries">
+        <item>AUTO</item>
+        <item>ON</item>
+        <item>OFF</item>
+    </string-array>
+    <string-array name="night_mode_values">
+        <item>auto</item>
+        <item>on</item>
+        <item>off</item>
+    </string-array>
+
+    <!-- Camera resolution options -->
+    <string-array name="resolution_entries">
+        <item>640 X 480 (VGA)</item>
+        <item>1280 X 720 (HD)</item>
+    </string-array>
+    <string-array name="resolution_values">
+        <item>640x480</item>
+        <item>1280x720</item>
+    </string-array>
+
+    <!-- Language options -->
+    <string-array name="language_entries">
+        <item>ENGLISH</item>
+        <item>SPANISH</item>
+        <item>FRENCH</item>
+        <item>GERMAN</item>
+        <item>CHINESE</item>
+        <item>JAPANESE</item>
+        <item>KOREAN</item>
+        <item>ARABIC</item>
+    </string-array>
+    <string-array name="language_values">
+        <item>en</item>
+        <item>es</item>
+        <item>fr</item>
+        <item>de</item>
+        <item>zh</item>
+        <item>ja</item>
+        <item>ko</item>
+        <item>ar</item>
+    </string-array>
+</resources>

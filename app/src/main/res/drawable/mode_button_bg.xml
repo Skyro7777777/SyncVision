@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- ============================================================
+     Sync Vision — Mode Button Background Selector
+     Selector drawable for mode toggle buttons (SCAN / PATH / ID)
+     Normal: dark background with green border
+     Selected: solid green background with dark text
+     Pressed: dim green background
+     ============================================================ -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Selected state: solid green background -->
+    <item android:state_selected="true">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/sync_green" />
+            <stroke
+                android:width="1dp"
+                android:color="@color/sync_green_bright" />
+            <corners android:radius="2dp" />
+        </shape>
+    </item>
+
+    <!-- Pressed state: dim green background -->
+    <item android:state_pressed="true">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/sync_green_translucent_20" />
+            <stroke
+                android:width="1dp"
+                android:color="@color/sync_green_dim" />
+            <corners android:radius="2dp" />
+        </shape>
+    </item>
+
+    <!-- Focused state: slightly highlighted -->
+    <item android:state_focused="true">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/dark_panel" />
+            <stroke
+                android:width="1dp"
+                android:color="@color/sync_green" />
+            <corners android:radius="2dp" />
+        </shape>
+    </item>
+
+    <!-- Default state: dark with green border -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@color/dark_panel" />
+            <stroke
+                android:width="1dp"
+                android:color="@color/sync_green_dim" />
+            <corners android:radius="2dp" />
+        </shape>
+    </item>
+
+</selector>
