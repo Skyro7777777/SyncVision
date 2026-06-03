@@ -10,7 +10,7 @@
  * CameraX Preview use case, bridging the camera subsystem with the
  * rendering subsystem.
  *
- * Sync Vision — Android Camera App with ML-powered Overlay
+ * Sync Vision â€” Android Camera App with ML-powered Overlay
  * Package: com.syncvision.app.rendering
  * Target SDK: 29+
  */
@@ -307,11 +307,9 @@ public class GLSurfaceManager {
             SurfaceTexture surfaceTexture = getCameraSurfaceTexture();
             if (surfaceTexture != null) {
                 android.view.Surface surface = new android.view.Surface(surfaceTexture);
-                request.provideSurface(surface, Runnable::run, () -> {
-                    // Surface is no longer needed
-                    if (!surface.isReleased()) {
-                        surface.release();
-                    }
+                request.provideSurface(surface, Runnable::run, s -> {
+                    // Surface is no longer needed â€” release it
+                    s.release();
                 });
             }
         };
