@@ -27,6 +27,8 @@
 # Keep object description data classes
 -keep class com.syncvision.app.ml.InferenceResult** { *; }
 
-# Don't warn about optional libraries
+# Don't warn about optional / missing libraries
 -dontwarn org.tensorflow.lite.gpu.**
 -dontwarn com.google.mediapipe.tasks.**
+-dontwarn com.google.mediapipe.proto.**
+-dontwarn com.google.mediapipe.framework.**
