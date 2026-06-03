@@ -196,13 +196,13 @@ public class FacePipeline {
             for (com.google.mediapipe.tasks.components.containers.Detection detection :
                     result.detections()) {
                 if (detection.boundingBox() != null) {
-                    com.google.mediapipe.tasks.components.containers.RectF bbox = detection.boundingBox();
+                    com.google.mediapipe.tasks.components.containers.Rect bbox = detection.boundingBox();
 
                     // Normalize from pixel coordinates to [0, 1]
-                    float left = bbox.left / lastFrameWidth;
-                    float top = bbox.top / lastFrameHeight;
-                    float right = bbox.right / lastFrameWidth;
-                    float bottom = bbox.bottom / lastFrameHeight;
+                    float left = (float) bbox.left / lastFrameWidth;
+                    float top = (float) bbox.top / lastFrameHeight;
+                    float right = (float) bbox.right / lastFrameWidth;
+                    float bottom = (float) bbox.bottom / lastFrameHeight;
 
                     // Clamp to [0, 1]
                     left = Math.max(0f, Math.min(1f, left));
