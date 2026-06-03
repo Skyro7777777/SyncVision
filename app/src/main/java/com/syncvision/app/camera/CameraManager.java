@@ -6,7 +6,7 @@
  * permissions, camera switching (front/back), and flash toggle.
  * Delivers ImageProxy frames to the FrameDispatcher for ML processing.
  *
- * Sync Vision — Android Camera App with ML-powered Overlay
+ * Sync Vision â€” Android Camera App with ML-powered Overlay
  * Package: com.syncvision.app.camera
  * Target SDK: 29+
  */
@@ -115,7 +115,7 @@ public class CameraManager {
         /** Called when a camera error occurs. */
         void onCameraError(String message);
 
-        /** Called when the camera is switched (front ↔ back). */
+        /** Called when the camera is switched (front â†” back). */
         void onCameraSwitched(boolean isFrontCamera);
 
         /** Called when flash state changes. */
@@ -370,8 +370,13 @@ public class CameraManager {
      * Useful for correctly orienting ML input and overlay rendering.
      */
     public int getSensorRotation() {
-        if (imageAnalysis != null && imageAnalysis.getTargetRotation() != -1) {
-            return imageAnalysis.getTargetRotation();
+        if (imageAnalysis != null) {
+            int rotation = imageAnalysis.getTargetRotation();
+            // Validate that the rotation is a legitimate Surface constant
+            if (rotation == Surface.ROTATION_0 || rotation == Surface.ROTATION_90
+                    || rotation == Surface.ROTATION_180 || rotation == Surface.ROTATION_270) {
+                return rotation;
+            }
         }
         return Surface.ROTATION_0;
     }
@@ -386,7 +391,7 @@ public class CameraManager {
     }
 
     // ================================================================
-    // Internal — Use Case Binding
+    // Internal â€” Use Case Binding
     // ================================================================
 
     /**
@@ -449,7 +454,7 @@ public class CameraManager {
     }
 
     // ================================================================
-    // Internal — Frame Delivery
+    // Internal â€” Frame Delivery
     // ================================================================
 
     /**
