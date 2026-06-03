@@ -17,7 +17,7 @@
  *   - Language: translation language
  *   - About: app info, privacy statement
  *
- * Sync Vision — Android Camera App with ML-powered Overlay
+ * Sync Vision â€” Android Camera App with ML-powered Overlay
  * Package: com.syncvision.app.ui
  * Target SDK: 29+
  */
@@ -37,6 +37,7 @@ import androidx.preference.Preference;
 import androidx.preference.PreferenceCategory;
 import androidx.preference.PreferenceFragmentCompat;
 import androidx.preference.PreferenceManager;
+import androidx.preference.PreferenceScreen;
 import androidx.preference.SeekBarPreference;
 import androidx.preference.SwitchPreferenceCompat;
 
@@ -332,7 +333,7 @@ public class SettingsActivity extends AppCompatActivity {
             Preference aboutPref = new Preference(requireContext());
             aboutPref.setKey(KEY_ABOUT);
             aboutPref.setTitle("SYNC VISION");
-            aboutPref.setSummary("VERSION 1.0.0 — ON-DEVICE ML CAMERA APP\nNO INTERNET PERMISSION. ALL DATA STAYS ON YOUR DEVICE.");
+            aboutPref.setSummary("VERSION 1.0.0 â€” ON-DEVICE ML CAMERA APP\nNO INTERNET PERMISSION. ALL DATA STAYS ON YOUR DEVICE.");
             aboutPref.setSelectable(false);
             aboutCategory.addPreference(aboutPref);
 
