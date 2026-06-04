@@ -165,11 +165,12 @@ public class NativeProcessor {
 
     /**
      * Creates a new NativeProcessor.
-     * Ensure the native library is loaded before calling any native methods.
+     * If the native library failed to load, all native method calls
+     * will return safe default values instead of crashing.
      */
     public NativeProcessor() {
         if (!libraryLoaded) {
-            Log.w(TAG, "Native library not loaded — native methods will throw");
+            Log.w(TAG, "Native library not loaded — using safe fallback implementations");
         }
     }
 
@@ -211,7 +212,14 @@ public class NativeProcessor {
      * @return Flat int array with contour data (header + points), or empty array on error.
      */
     @NonNull
-    public native int[] nativeProcessContours(@NonNull int[] maskData, int width, int height);
+    public int[] nativeProcessContoursSafe(@NonNull int[] maskData, int width, int height) {
+        if (!libraryLoaded) return new int[0];
+        try { return nativeProcessContours(maskData, width, height); }
+        catch (UnsatisfiedLinkError e) { Log.e(TAG, "nativeProcessContours failed", e); return new int[0]; }
+    }
+
+    @NonNull
+    native int[] nativeProcessContours(@NonNull int[] maskData, int width, int height);
 
     /**
      * Simplifies a contour using the Douglas-Peucker algorithm.
@@ -224,7 +232,14 @@ public class NativeProcessor {
      * @return Simplified contour points [x0, y0, x1, y1, ...], or empty array on error.
      */
     @NonNull
-    public native int[] nativeSimplifyContours(@NonNull int[] contourPoints, double epsilon);
+    public int[] nativeSimplifyContoursSafe(@NonNull int[] contourPoints, double epsilon) {
+        if (!libraryLoaded) return new int[0];
+        try { return nativeSimplifyContours(contourPoints, epsilon); }
+        catch (UnsatisfiedLinkError e) { Log.e(TAG, "nativeSimplifyContours failed", e); return new int[0]; }
+    }
+
+    @NonNull
+    native int[] nativeSimplifyContours(@NonNull int[] contourPoints, double epsilon);
 
     /**
      * Computes optimal label placement positions for detected objects.
@@ -242,7 +257,14 @@ public class NativeProcessor {
      * @return Array of label placements, or null on error.
      */
     @Nullable
-    public native Object[] nativePlaceLabels(@NonNull Object[] objects, int width, int height);
+    public Object[] nativePlaceLabelsSafe(@NonNull Object[] objects, int width, int height) {
+        if (!libraryLoaded) return null;
+        try { return nativePlaceLabels(objects, width, height); }
+        catch (UnsatisfiedLinkError e) { Log.e(TAG, "nativePlaceLabels failed", e); return null; }
+    }
+
+    @Nullable
+    native Object[] nativePlaceLabels(@NonNull Object[] objects, int width, int height);
 
     /**
      * Finds a navigational path using A* pathfinding on a depth map.
@@ -269,8 +291,16 @@ public class NativeProcessor {
      * @return Path result as flat float array, or empty array on error.
      */
     @NonNull
-    public native float[] nativeFindPath(@NonNull float[] depthMap, int width, int height,
-                                          @Nullable float[] obstacles);
+    public float[] nativeFindPathSafe(@NonNull float[] depthMap, int width, int height,
+                                      @Nullable float[] obstacles) {
+        if (!libraryLoaded) return new float[0];
+        try { return nativeFindPath(depthMap, width, height, obstacles); }
+        catch (UnsatisfiedLinkError e) { Log.e(TAG, "nativeFindPath failed", e); return new float[0]; }
+    }
+
+    @NonNull
+    native float[] nativeFindPath(@NonNull float[] depthMap, int width, int height,
+                                  @Nullable float[] obstacles);
 
     /**
      * Generates a relationship diagram (sync diagram) from detected objects.
@@ -295,7 +325,14 @@ public class NativeProcessor {
      * @return Diagram data as flat float array, or empty array on error.
      */
     @NonNull
-    public native float[] nativeGenerateSyncDiagram(@NonNull Object[] objects);
+    public float[] nativeGenerateSyncDiagramSafe(@NonNull Object[] objects) {
+        if (!libraryLoaded) return new float[0];
+        try { return nativeGenerateSyncDiagram(objects); }
+        catch (UnsatisfiedLinkError e) { Log.e(TAG, "nativeGenerateSyncDiagram failed", e); return new float[0]; }
+    }
+
+    @NonNull
+    native float[] nativeGenerateSyncDiagram(@NonNull Object[] objects);
 
     /**
      * Applies Canny edge detection to an image.
@@ -313,8 +350,16 @@ public class NativeProcessor {
      * @return Edge mask (0 or 255 per pixel), or empty array on error.
      */
     @NonNull
-    public native int[] nativeApplyCannyEdge(@NonNull int[] imageData, int width, int height,
-                                              double lowThreshold, double highThreshold);
+    public int[] nativeApplyCannyEdgeSafe(@NonNull int[] imageData, int width, int height,
+                                          double lowThreshold, double highThreshold) {
+        if (!libraryLoaded) return new int[0];
+        try { return nativeApplyCannyEdge(imageData, width, height, lowThreshold, highThreshold); }
+        catch (UnsatisfiedLinkError e) { Log.e(TAG, "nativeApplyCannyEdge failed", e); return new int[0]; }
+    }
+
+    @NonNull
+    native int[] nativeApplyCannyEdge(@NonNull int[] imageData, int width, int height,
+                                      double lowThreshold, double highThreshold);
 
     // ================================================================
     // Convenience Wrappers
@@ -345,7 +390,7 @@ public class NativeProcessor {
             }
         }
 
-        return nativeProcessContours(flatMask, width, height);
+        return nativeProcessContoursSafe(flatMask, width, height);
     }
 
     /**
@@ -375,6 +420,6 @@ public class NativeProcessor {
             }
         }
 
-        return nativeFindPath(flatDepth, width, height, obstacles);
+        return nativeFindPathSafe(flatDepth, width, height, obstacles);
     }
 }

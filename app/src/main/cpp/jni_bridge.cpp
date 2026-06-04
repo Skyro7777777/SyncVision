@@ -192,7 +192,7 @@ static std::vector<DetectedObj> parseDetectedObjects(JNIEnv* env,
 //   Output: flattened contour points (x1,y1,x2,y2,...) with header
 // ============================================================================
 extern "C" JNIEXPORT jintArray JNICALL
-Java_com_syncvision_app_nativelib_NativeProcessor_processContours(
+Java_com_syncvision_app_nativelib_NativeProcessor_nativeProcessContours(
     JNIEnv* env,
     jobject /* this */,
     jintArray maskData,
@@ -239,7 +239,7 @@ Java_com_syncvision_app_nativelib_NativeProcessor_processContours(
 //   Output: simplified contour points
 // ============================================================================
 extern "C" JNIEXPORT jintArray JNICALL
-Java_com_syncvision_app_nativelib_NativeProcessor_simplifyContours(
+Java_com_syncvision_app_nativelib_NativeProcessor_nativeSimplifyContours(
     JNIEnv* env,
     jobject /* this */,
     jintArray contourPoints,
@@ -288,7 +288,7 @@ Java_com_syncvision_app_nativelib_NativeProcessor_simplifyContours(
 //           with text strings returned separately
 // ============================================================================
 extern "C" JNIEXPORT jobjectArray JNICALL
-Java_com_syncvision_app_nativelib_NativeProcessor_placeLabels(
+Java_com_syncvision_app_nativelib_NativeProcessor_nativePlaceLabels(
     JNIEnv* env,
     jobject /* this */,
     jobjectArray objects,
@@ -383,7 +383,7 @@ Java_com_syncvision_app_nativelib_NativeProcessor_placeLabels(
 //           First 3 floats: totalCost, isClear (0/1), numWaypoints
 // ============================================================================
 extern "C" JNIEXPORT jfloatArray JNICALL
-Java_com_syncvision_app_nativelib_NativeProcessor_findPath(
+Java_com_syncvision_app_nativelib_NativeProcessor_nativeFindPath(
     JNIEnv* env,
     jobject /* this */,
     jfloatArray depthMap,
@@ -477,7 +477,7 @@ Java_com_syncvision_app_nativelib_NativeProcessor_findPath(
 //           looked up by ID from the input objects.
 // ============================================================================
 extern "C" JNIEXPORT jfloatArray JNICALL
-Java_com_syncvision_app_nativelib_NativeProcessor_generateSyncDiagram(
+Java_com_syncvision_app_nativelib_NativeProcessor_nativeGenerateSyncDiagram(
     JNIEnv* env,
     jobject /* this */,
     jobjectArray objects)
@@ -543,7 +543,7 @@ Java_com_syncvision_app_nativelib_NativeProcessor_generateSyncDiagram(
 //   Output: edge mask (int array: 0 or 255 per pixel)
 // ============================================================================
 extern "C" JNIEXPORT jintArray JNICALL
-Java_com_syncvision_app_nativelib_NativeProcessor_applyCannyEdge(
+Java_com_syncvision_app_nativelib_NativeProcessor_nativeApplyCannyEdge(
     JNIEnv* env,
     jobject /* this */,
     jintArray imageData,
