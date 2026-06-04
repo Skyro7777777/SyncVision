@@ -53,8 +53,8 @@ public class FacePipeline {
     /** Minimum confidence threshold for face detection. */
     private static final float MIN_CONFIDENCE = 0.5f;
 
-    /** Model filename in assets/models/. */
-    private static final String MODEL_NAME = "blaze_face_short_range.tflite";
+    /** Model filename in assets/models/. Must match the actual .tflite file name. */
+    private static final String MODEL_NAME = "blazeface_short.tflite";
 
     // -----------------------------------------------------------------
     // MediaPipe components
@@ -101,14 +101,21 @@ public class FacePipeline {
 
         try {
             // Build the FaceDetector using MediaPipe Tasks Vision API
+            // FIX: Must set model asset path so MediaPipe loads OUR model file
+            // from assets/models/ instead of relying on a default/bundled model.
+            com.google.mediapipe.tasks.core.BaseOptions baseOptions =
+                    com.google.mediapipe.tasks.core.BaseOptions.builder()
+                            .setModelAssetPath("models/" + MODEL_NAME)
+                            .build();
+
             FaceDetector.FaceDetectorOptions options =
                     FaceDetector.FaceDetectorOptions.builder()
+                            .setBaseOptions(baseOptions)
                             .setRunningMode(RunningMode.IMAGE)
                             .setMinDetectionConfidence(MIN_CONFIDENCE)
                             .build();
 
-            // Load model from assets
-            String modelPath = MODEL_NAME;
+            // Create face detector with the specified model
             faceDetector = FaceDetector.createFromOptions(context, options);
 
             initialized = true;

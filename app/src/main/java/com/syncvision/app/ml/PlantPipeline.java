@@ -6,7 +6,7 @@
  * the camera frame. Operates on-demand only (tap-triggered) to avoid
  * unnecessary computation.
  *
- * Model: inat_mobileNet_plant.tflite
+ * Model: inaturalist_mnv2_int8.tflite
  * Input: 224x224x3 float32 (RGB, normalized [0, 1])
  * Output: 1xNUM_SPECIES float32 (species probability distribution)
  *
@@ -49,8 +49,8 @@ public class PlantPipeline {
 
     private static final String TAG = "SV-PlantPipeline";
 
-    /** Model filename in assets/models/. */
-    private static final String MODEL_NAME = "inat_mobileNet_plant.tflite";
+    /** Model filename in assets/models/. Must match the actual .tflite file name. */
+    private static final String MODEL_NAME = "inaturalist_mnv2_int8.tflite";
 
     /** Input image size (square) for the iNaturalist model. */
     private static final int INPUT_SIZE = 224;

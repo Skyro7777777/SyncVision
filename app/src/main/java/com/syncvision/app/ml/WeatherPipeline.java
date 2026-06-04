@@ -58,8 +58,8 @@ public class WeatherPipeline {
 
     private static final String TAG = "SV-WeatherPipeline";
 
-    /** Model filename in assets/models/. */
-    private static final String MODEL_NAME = "weather_classifier.tflite";
+    /** Model filename in assets/models/. Must match the actual .tflite file name. */
+    private static final String MODEL_NAME = "weather_classifier_int8.tflite";
 
     /** Number of weather condition classes. */
     private static final int NUM_CLASSES = 8;

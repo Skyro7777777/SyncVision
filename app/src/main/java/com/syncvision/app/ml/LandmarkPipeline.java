@@ -55,8 +55,8 @@ public class LandmarkPipeline {
 
     private static final String TAG = "SV-LandmarkPipeline";
 
-    /** Model filename in assets/models/. */
-    private static final String MODEL_NAME = "landmark_classifier.tflite";
+    /** Model filename in assets/models/. Must match the actual .tflite file name. */
+    private static final String MODEL_NAME = "landmark_effnet_int8.tflite";
 
     /** Input image size (square) for the landmark model. */
     private static final int INPUT_SIZE = 224;
@@ -357,7 +357,7 @@ public class LandmarkPipeline {
                 "Landmark model not available",
                 0f,
                 "Landmark recognition requires a custom model. " +
-                "Place 'landmark_classifier.tflite' in assets/models/ to enable.");
+                "Place 'landmark_effnet_int8.tflite' in assets/models/ to enable.");
     }
 
     // ================================================================
