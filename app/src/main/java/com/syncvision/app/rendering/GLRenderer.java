@@ -141,6 +141,12 @@ public class GLRenderer implements android.opengl.GLSurfaceView.Renderer {
     /** The SurfaceTexture that receives camera preview frames. */
     private SurfaceTexture cameraSurfaceTexture;
 
+    /** *** FIX #2: Camera transform matrix from SurfaceTexture. ***
+     * Updated every frame from SurfaceTexture.getTransformMatrix().
+     * This matrix handles rotation and mirroring of the camera feed.
+     * Without applying it, the camera appears horizontal and/or mirrored. */
+    private final float[] cameraTransformMatrix = new float[16];
+
     /** Callback to notify when the SurfaceTexture is ready. */
     @Nullable
     private OnSurfaceTextureReadyListener surfaceTextureListener;
@@ -439,6 +445,10 @@ public class GLRenderer implements android.opengl.GLSurfaceView.Renderer {
         // 1. Update camera texture from SurfaceTexture
         if (cameraSurfaceTexture != null) {
             cameraSurfaceTexture.updateTexImage();
+            // *** FIX #2: Get the transform matrix from SurfaceTexture every frame ***
+            // This matrix handles camera rotation (portrait→landscape) and mirroring.
+            // Without applying it, the camera feed appears horizontal and/or mirrored.
+            cameraSurfaceTexture.getTransformMatrix(cameraTransformMatrix);
         }
 
         // 2. Upload dirty textures
@@ -515,6 +525,10 @@ public class GLRenderer implements android.opengl.GLSurfaceView.Renderer {
         compositeShader.setTime(timeSeconds);
         compositeShader.setScanlineIntensity(scanlineIntensity);
         compositeShader.setNightMode(nightMode ? 1.0f : 0.0f);
+
+        // *** FIX #2: Pass the SurfaceTexture transform matrix to the shader ***
+        // This handles camera rotation and mirroring so the preview displays correctly.
+        compositeShader.setCameraTransform(cameraTransformMatrix);
 
         // Bind VAO and draw
         GLES30.glBindVertexArray(quadVaoId);

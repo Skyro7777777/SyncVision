@@ -66,6 +66,7 @@ import com.syncvision.app.ml.DetectionPipeline;
 import com.syncvision.app.ml.DepthPipeline;
 import com.syncvision.app.ml.FacePipeline;
 import com.syncvision.app.ml.InferenceResult;
+import com.syncvision.app.ml.ModelManager;
 import com.syncvision.app.ml.SegmentationPipeline;
 import com.syncvision.app.ml.WeatherPipeline;
 import com.syncvision.app.ml.OcrPipeline;
@@ -368,6 +369,16 @@ public class MainActivity extends AppCompatActivity {
      * from crashing the entire app.
      */
     private void initializeComponents() {
+        // *** ROOT CAUSE FIX #1: Initialize ModelManager BEFORE any pipelines ***
+        // Without this, all pipelines throw IllegalStateException("ModelManager not initialized")
+        // which is silently caught by try-catch → ALL ML pipelines are null → zero ML processing.
+        try {
+            ModelManager.getInstance().initialize(this);
+            Log.i(TAG, "ModelManager initialized with Context");
+        } catch (Exception e) {
+            Log.e(TAG, "Failed to initialize ModelManager — all ML pipelines will fail!", e);
+        }
+
         try {
             // Native processor (JNI bridge to C++)
             nativeProcessor = new NativeProcessor();
@@ -552,13 +563,17 @@ public class MainActivity extends AppCompatActivity {
         }
 
         // Connect the GL surface to the camera preview
+        // *** ROOT CAUSE FIX #3: onSurfaceTextureReady fires on the GL thread, ***
+        // but startCamera() MUST be called on the main thread. Use runOnUiThread().
         glSurfaceManager.setOnCameraPreviewProviderListener(surfaceTexture -> {
-            // When the SurfaceTexture is ready, start the camera
-            androidx.camera.core.Preview.SurfaceProvider provider =
-                    glSurfaceManager.getCameraSurfaceProvider();
-            if (provider != null && cameraManager != null) {
-                cameraManager.startCamera(provider);
-            }
+            // When the SurfaceTexture is ready, start the camera on the MAIN thread
+            runOnUiThread(() -> {
+                androidx.camera.core.Preview.SurfaceProvider provider =
+                        glSurfaceManager.getCameraSurfaceProvider();
+                if (provider != null && cameraManager != null) {
+                    cameraManager.startCamera(provider);
+                }
+            });
         });
 
         // Set the frame dispatcher to receive camera frames

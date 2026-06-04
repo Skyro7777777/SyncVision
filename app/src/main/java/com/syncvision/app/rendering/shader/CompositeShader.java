@@ -35,6 +35,7 @@ import androidx.annotation.NonNull;
  *   - uMaskTexture   (sampler2D): Segmentation mask (R8)
  *   - uLabelTexture  (sampler2D): Label overlay (RGBA)
  *   - uDepthTexture  (sampler2D): Depth map (R16F)
+ *   - uCameraTransform (mat4):    SurfaceTexture transform matrix (FIX #2)
  *   - uTexelSize     (vec2):      1.0/width, 1.0/height
  *   - uGreenColor    (vec3):      Terminal green (#00FF41 = 0.0, 1.0, 0.255)
  *   - uTime          (float):     Elapsed time for animations
@@ -71,6 +72,7 @@ public class CompositeShader {
     private int uMaskTexture       = -1;
     private int uLabelTexture      = -1;
     private int uDepthTexture      = -1;
+    private int uCameraTransform   = -1;  // *** FIX #2: SurfaceTexture transform matrix ***
     private int uTexelSize         = -1;
     private int uGreenColor        = -1;
     private int uTime              = -1;
@@ -122,6 +124,7 @@ public class CompositeShader {
         uMaskTexture       = shaderProgram.getUniformLocation("uMaskTexture");
         uLabelTexture      = shaderProgram.getUniformLocation("uLabelTexture");
         uDepthTexture      = shaderProgram.getUniformLocation("uDepthTexture");
+        uCameraTransform   = shaderProgram.getUniformLocation("uCameraTransform");  // *** FIX #2 ***
         uTexelSize         = shaderProgram.getUniformLocation("uTexelSize");
         uGreenColor        = shaderProgram.getUniformLocation("uGreenColor");
         uTime              = shaderProgram.getUniformLocation("uTime");
@@ -192,6 +195,20 @@ public class CompositeShader {
     public void setDepthTexture(int unit) {
         if (uDepthTexture != -1) {
             GLES30.glUniform1i(uDepthTexture, unit);
+        }
+    }
+
+    /**
+     * *** FIX #2: Sets the SurfaceTexture camera transform matrix. ***
+     * This 4x4 matrix handles rotation and mirroring of the camera feed.
+     * It must be updated every frame from SurfaceTexture.getTransformMatrix().
+     * Without this, the camera appears horizontal and/or mirrored.
+     *
+     * @param matrix 16-float column-major matrix from SurfaceTexture.getTransformMatrix().
+     */
+    public void setCameraTransform(@NonNull float[] matrix) {
+        if (uCameraTransform != -1 && matrix.length >= 16) {
+            GLES30.glUniformMatrix4fv(uCameraTransform, 1, false, matrix, 0);
         }
     }
 
@@ -305,6 +322,7 @@ public class CompositeShader {
         uMaskTexture       = -1;
         uLabelTexture      = -1;
         uDepthTexture      = -1;
+        uCameraTransform   = -1;
         uTexelSize         = -1;
         uGreenColor        = -1;
         uTime              = -1;

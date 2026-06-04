@@ -1,26 +1,33 @@
 // ============================================================================
 // composite_fragment.glsl
-// Sync Vision â€” Core Composite Fragment Shader
+// Sync Vision — Core Composite Fragment Shader
 //
 // The primary compositing shader that combines:
-//   1. Camera feed (base layer)
+//   1. Camera feed (base layer) — sampled with TRANSFORMED coordinates (FIX #2)
 //   2. Green outline overlay (via Sobel edge detection on segmentation mask)
 //   3. Text label overlay (from pre-rendered label texture)
 //   4. CRT scanline effect (subtle terminal aesthetic)
 //   5. Night mode brightness boost
 //   6. Glow effect around green outlines
 //
-// The green outline is the signature visual of Sync Vision â€” thin (1-2px),
+// The green outline is the signature visual of Sync Vision — thin (1-2px),
 // bright terminal green (#00FF41) lines tracing object boundaries detected
 // by the segmentation model, creating an E.D.I.T.H-inspired AR overlay.
+//
+// *** FIX #2: Camera texture is now sampled using vCameraTexCoord ***
+// which has the SurfaceTexture transform matrix applied for proper
+// rotation and mirroring. Mask/label/depth textures still use vTexCoord.
 // ============================================================================
 
 #version 300 es
 #extension GL_OES_EGL_image_external_essl3 : require
 precision mediump float;
 
-// Varying input from vertex shader
+// Varying input from vertex shader — untransformed (for mask/label/depth)
 in vec2 vTexCoord;
+
+// *** FIX #2: Transformed texture coordinates for camera sampling ***
+in vec2 vCameraTexCoord;
 
 // Output
 layout(location = 0) out vec4 fragColor;
@@ -111,21 +118,21 @@ float computeGlow(vec2 uv) {
 }
 
 // ---------------------------------------------------------------------------
-// CRT scanline effect â€” subtle darkened horizontal lines
+// CRT scanline effect — subtle darkened horizontal lines
 // ---------------------------------------------------------------------------
 float scanlineEffect(vec2 uv) {
     // Screen-space Y coordinate for scanline pattern
     float screenY = uv.y * SCANLINE_FREQ;
     float scanline = sin(screenY * 3.14159265) * 0.5 + 0.5;
 
-    // Make it subtle â€” only darken slightly
+    // Make it subtle — only darken slightly
     float darkening = mix(1.0, 1.0 - SCANLINE_DARK, scanline * uScanlineIntensity);
 
     return darkening;
 }
 
 // ---------------------------------------------------------------------------
-// Night mode â€” brightness boost and slight warm tint
+// Night mode — brightness boost and slight warm tint
 // ---------------------------------------------------------------------------
 vec3 applyNightMode(vec3 color) {
     // Boost brightness
@@ -145,10 +152,12 @@ vec3 applyNightMode(vec3 color) {
 // Main
 // ---------------------------------------------------------------------------
 void main() {
-    // 1. Sample camera feed
-    vec3 cameraColor = texture(uCameraTexture, vTexCoord).rgb;
+    // *** FIX #2: Use vCameraTexCoord for camera texture sampling ***
+    // This applies the SurfaceTexture transform matrix (rotation + mirroring)
+    // so the camera feed displays correctly (not horizontal/mirrored).
+    vec3 cameraColor = texture(uCameraTexture, vCameraTexCoord).rgb;
 
-    // 2. Sample segmentation mask
+    // 2. Sample segmentation mask (uses untransformed coords)
     float maskValue = sampleMask(vTexCoord);
 
     // 3. Sobel edge detection on mask
@@ -180,12 +189,12 @@ void main() {
     vec3 finalColor = cameraColor;
 
     if (isEdge) {
-        // Direct outline â€” bright terminal green with pulse
+        // Direct outline — bright terminal green with pulse
         float edgeIntensity = min(edgeMagnitude / 1.5, 1.0) * pulse;
         vec3 outlineColor = uGreenColor * edgeIntensity;
         finalColor = mix(cameraColor, outlineColor, OUTLINE_ALPHA);
     } else if (glow > 0.01) {
-        // Glow around outline â€” softer, more transparent green
+        // Glow around outline — softer, more transparent green
         vec3 glowColor = uGreenColor * GLOW_INTENSITY * glow;
         finalColor = mix(finalColor, finalColor + glowColor, glow * 0.7);
     }
