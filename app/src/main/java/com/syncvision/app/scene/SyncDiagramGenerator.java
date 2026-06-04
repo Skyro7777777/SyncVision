@@ -153,7 +153,7 @@ public class SyncDiagramGenerator {
                     convertToNativeFormat(result.detection.objects);
 
             // Call the native method
-            float[] diagramData = nativeProcessor.nativeGenerateSyncDiagram(nativeObjects);
+            float[] diagramData = nativeProcessor.nativeGenerateSyncDiagramSafe(nativeObjects);
 
             if (diagramData == null || diagramData.length < NativeConstants.DIAGRAM_HEADER_SIZE) {
                 Log.w(TAG, "Native diagram generation returned insufficient data");
